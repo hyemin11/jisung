@@ -3,6 +3,8 @@ package egovframework.com.config;
 import java.util.List;
 import java.util.Properties;
 
+import lombok.Data;
+import lombok.Getter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -41,7 +43,9 @@ import egovframework.com.cmm.interceptor.CustomAuthenticInterceptor;
 @ComponentScan(basePackages = "egovframework", excludeFilters = {
 	@ComponentScan.Filter(type = FilterType.ANNOTATION, value = Service.class),
 	@ComponentScan.Filter(type = FilterType.ANNOTATION, value = Repository.class),
-	@ComponentScan.Filter(type = FilterType.ANNOTATION, value = Configuration.class)
+	@ComponentScan.Filter(type = FilterType.ANNOTATION, value = Configuration.class),
+		@ComponentScan.Filter(type = FilterType.ANNOTATION, value = Data.class),
+		@ComponentScan.Filter(type = FilterType.ANNOTATION, value = Getter.class)
 })
 public class EgovConfigWebDispatcherServlet implements WebMvcConfigurer {
 
@@ -63,8 +67,8 @@ public class EgovConfigWebDispatcherServlet implements WebMvcConfigurer {
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(new AuthenticInterceptor())
 			.addPathPatterns(
-//				"/cop/com/*.do",
-//				"/cop/bbs/*Master*.do",
+				"/cop/com/*.do",
+	//			"/cop/bbs/*.do",
 				"/uat/uia/*.do")
 			.excludePathPatterns(
 				"/uat/uia/actionLogin.do",
