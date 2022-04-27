@@ -66,7 +66,7 @@ public class EgovMainController {
 	@RequestMapping(value = "/cmm/main/mainPage.do")
 	public String getMgtMainPage(HttpServletRequest request, ModelMap model)
 	  throws Exception{
-
+/*
 		// 공지사항 메인 컨텐츠 조회 시작 ---------------------------------
 		BoardVO boardVO = new BoardVO();
 		boardVO.setPageUnit(5);
@@ -88,7 +88,7 @@ public class EgovMainController {
 
 		boardVO.setBbsId("BBSMSTR_BBBBBBBBBBBB");
 		map = bbsMngService.selectBoardArticles(boardVO, "BBSA02");
-		model.addAttribute("galList", map.get("resultList"));
+		model.addAttribute("galList", map.get("resultList"));*/
 
 		// 공지사항 메인컨텐츠 조회 끝 -----------------------------------
 
