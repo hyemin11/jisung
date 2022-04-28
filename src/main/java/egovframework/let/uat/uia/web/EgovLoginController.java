@@ -36,7 +36,7 @@ import org.springframework.web.context.request.RequestContextHolder;
  *
  *  </pre>
  */
-@Controller
+//@Controller
 public class EgovLoginController {
 
 	/** EgovLoginService */

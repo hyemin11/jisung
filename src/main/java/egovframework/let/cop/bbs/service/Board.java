@@ -2,6 +2,7 @@ package egovframework.let.cop.bbs.service;
 
 import java.io.Serializable;
 
+import lombok.Data;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
@@ -21,6 +22,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  *
  *  </pre>
  */
+@Data
 public class Board implements Serializable {
 
 	/**
