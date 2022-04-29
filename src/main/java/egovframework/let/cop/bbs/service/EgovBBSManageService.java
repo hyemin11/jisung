@@ -1,5 +1,6 @@
 package egovframework.let.cop.bbs.service;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,6 +21,7 @@ import java.util.Map;
  *  </pre>
  */
 public interface EgovBBSManageService {
+
 
 	/**
 	 * 게시물 한 건을 삭제 한다.

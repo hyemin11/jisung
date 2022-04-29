@@ -27,8 +27,8 @@
 	</resultMap>
 	-->
 	<!-- 일반 로그인 -->
-	<select id="actionLogin" resultMap="login">
-		<if test="userSe == &quot;USR&quot;">
+<!--	<select id="actionLogin" resultMap="login">
+		<if test="userSe == 'USR' ">
 			
             SELECT EMPLYR_ID AS id
                  , USER_NM AS name
@@ -44,6 +44,25 @@
                AND EMPLYR_STTUS_CODE = 'P'
 			
 		</if>
+	</select>-->
+
+	<select id="actionLogin" resultMap="login">
+
+
+			SELECT EMPLYR_ID AS id
+			, USER_NM AS name
+			, PASSWORD AS password
+			, IHIDNUM AS ihidNum
+			, EMAIL_ADRES AS email
+			, 'USR' AS userSe
+			, ORGNZT_ID AS orgnztId
+			, ESNTL_ID AS uniqId
+			FROM LETTNEMPLYRINFO
+			WHERE EMPLYR_ID = #{id}
+			AND PASSWORD = #{password}
+			AND EMPLYR_STTUS_CODE = 'P'
+
+
 	</select>
 	
 	<!-- 인증서 로그인

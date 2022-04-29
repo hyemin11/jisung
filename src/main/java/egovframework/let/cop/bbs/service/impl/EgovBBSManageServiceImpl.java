@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import egovframework.let.cop.bbs.service.Criteria;
 import org.springframework.stereotype.Service;
 
 import egovframework.com.cmm.service.EgovFileMngService;
@@ -48,6 +49,7 @@ public class EgovBBSManageServiceImpl extends EgovAbstractServiceImpl implements
 
 	@Resource(name = "propertiesService")
 	protected EgovPropertyService propertyService;
+
 
 	/**
 	 * 게시물 한 건을 삭제 한다.
