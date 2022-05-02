@@ -496,6 +496,7 @@ public class EgovConfigAppIdGen {
 	/** 삭제예정 ID Generation  Config
 	 * @return
 	 */
+/*
 	@Bean(destroyMethod = "destroy")
 	public EgovTableIdGnrServiceImpl egovIdGnrService() {
 		return new EgovIdGnrBuilder().setDataSource(egovDataSource)
@@ -508,6 +509,21 @@ public class EgovConfigAppIdGen {
 			.setFillChar('0')
 			.build();
 	}
+*/
+	@Bean(destroyMethod = "destroy")
+	public EgovTableIdGnrServiceImpl egovIdGnrService() {
+		return new EgovIdGnrBuilder().setDataSource(egovDataSource)
+				.setEgovIdGnrStrategyImpl(new EgovIdGnrStrategyImpl())
+				.setBlockSize(1)
+				.setTable("ids")
+				.setTableName("COMTNWORDDICARYINFO")
+				.setPreFix("SAMPLE-")
+				.setCipers(5)
+				.setFillChar('0')
+				.build();
+	}
+
+
 
 	/** 게시판용 NTT_ID Generation  Config
 	 * @return
