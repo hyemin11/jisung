@@ -40,7 +40,7 @@ import org.egovframe.rte.fdl.property.EgovPropertyService;
  *
  *  </pre>
  */
-@Controller
+//@Controller
 public class EgovLoginAPIController {
 
 	/** EgovLoginService */

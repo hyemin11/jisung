@@ -177,7 +177,6 @@
 						                width="15" height="15" alt="calendar">
 						                <br/><form:errors path="ntceBgnde" />
 						                <br/><form:errors path="ntceEndde" />
-						                
 						            </td>
 						          </tr>     
 						          </c:when>

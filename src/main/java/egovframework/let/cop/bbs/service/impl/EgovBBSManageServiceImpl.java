@@ -8,7 +8,6 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import egovframework.let.cop.bbs.service.Criteria;
 import org.springframework.stereotype.Service;
 
 import egovframework.com.cmm.service.EgovFileMngService;

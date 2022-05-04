@@ -29,6 +29,8 @@ public class Board implements Serializable {
 	 *  serialVersion UID
 	 */
 	private static final long serialVersionUID = -8868310931851410226L;
+
+	private String homepage ="";
 	/**
 	 * 게시물 첨부파일 아이디
 	 */
@@ -121,6 +123,14 @@ public class Board implements Serializable {
 	 * 게시 시작일
 	 */
 	private String ntceBgndeView = "";
+
+	public String getHomepage() {
+		return homepage;
+	}
+
+	public void setHomepage(String homepage) {
+		this.homepage = homepage;
+	}
 
 	/**
 	 * atchFileId attribute를 리턴한다.
