@@ -98,7 +98,7 @@
 			  #{ntcrId}, #{ntcrNm}, #{password}, #{inqireCo}, 
 			  #{ntceBgnde}, #{ntceEndde}, #{replyAt}, 
 			  #{parnts}, 1, #{replyLc}, #{atchFileId},
-			  #{frstRegisterId}, SYSDATE(), 'Y',#{homepage}
+			  #{frstRegisterId}, NOW(), 'Y',#{homepage}
 			 )			
 		
 	</insert>
