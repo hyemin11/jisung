@@ -90,6 +90,7 @@ public class EgovFileMngController {
 	model.addAttribute("atchFileId", atchFileId);
 
 	return "cmm/fms/EgovFileList";
+		/*return "javascript:history.back();";*/
     }
 
     /**
