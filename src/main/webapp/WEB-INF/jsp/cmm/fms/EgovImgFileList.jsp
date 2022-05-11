@@ -13,6 +13,15 @@
 --%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--<table>
+    <c:forEach var="fileVO" items="${fileList}" varStatus="status">
+        <tr>
+            <td>
+                <img src='<c:url value='/cmm/fms/getImage.do'/>?atchFileId=<c:out value="${fileVO.atchFileId}"/>&amp;fileSn=<c:out value="${fileVO.fileSn}"/>' width="640" alt="파일보기링크" />
+            </td>
+        </tr>
+    </c:forEach>
+</table>--%>
 <table>
     <c:forEach var="fileVO" items="${fileList}" varStatus="status">
         <tr>
@@ -22,3 +31,4 @@
         </tr>
     </c:forEach>
 </table>
+

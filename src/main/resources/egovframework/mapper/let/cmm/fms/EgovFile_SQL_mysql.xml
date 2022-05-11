@@ -149,7 +149,7 @@
  	</select>
  	
   	<select id="FileManageDAO.selectImageFileList" parameterType="FileVO" resultMap="fileList">
- 		
+
 			SELECT 
 				a.ATCH_FILE_ID, b.FILE_CN, b.FILE_SN, b.FILE_STRE_COURS, b.STRE_FILE_NM,
 				b.FILE_EXTSN, b.ORIGNL_FILE_NM, b.FILE_SIZE, a.CREAT_DT
@@ -163,8 +163,9 @@
 				UPPER(b.FILE_EXTSN) IN ('GIF','JPG','BMP','PNG')
 			AND 
 				a.USE_AT = 'Y'				
-			ORDER BY b.FILE_SN	
- 		
- 	</select>	
+			ORDER BY b.FILE_SN
+
+
+	</select>
  	
 </mapper>
