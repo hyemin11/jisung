@@ -95,7 +95,7 @@
 			<artifactId>org.egovframe.rte.fdl.string</artifactId>
 			<version>${org.egovframe.rte.version}</version>
 		</dependency>
-		<dependency>
+		<!--<dependency>
 			<groupId>org.egovframe.rte</groupId>
 			<artifactId>org.egovframe.rte.fdl.security</artifactId>
 			<version>${org.egovframe.rte.version}</version>
@@ -120,7 +120,7 @@
 			<artifactId>org.egovframe.rte.fdl.access</artifactId>
 			<version>${org.egovframe.rte.version}</version>
 		</dependency>
-		
+		-->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
