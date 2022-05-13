@@ -24,6 +24,7 @@ import org.springmodules.validation.commons.DefaultBeanValidator;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -48,6 +49,11 @@ public class NoticeController {
 
     @Resource(name="egovMessageSource")
     EgovMessageSource egovMessageSource;
+
+
+    @Resource(name = "EgovFileMngService")
+    private EgovFileMngService fileService;
+
 
     @Autowired
     private DefaultBeanValidator beanValidator;
@@ -131,9 +137,9 @@ public class NoticeController {
             boardVO.setPlusCount(false);
         }
         ////-------------------------------
-
+        Map<String, Object> resultMap = new HashMap<String, Object>();
         BoardVO vo = bbsMngService.selectBoardArticle(boardVO);
-
+        resultMap.put("boardVO", vo);
         model.addAttribute("noticeResult", vo);
         model.addAttribute("articleVO", vo);
         //----------------------------
@@ -146,6 +152,14 @@ public class NoticeController {
         BoardMasterVO masterVo = bbsAttrbService.selectBBSMasterInf(master);
 
         model.addAttribute("brdMstrVO", masterVo);
+
+        if (vo != null && vo.getAtchFileId() != null && !vo.getAtchFileId().isEmpty()) {
+            FileVO fileVO = new FileVO();
+            fileVO.setAtchFileId(vo.getAtchFileId());
+            List<FileVO> resultFiles = fileService.selectFileInfs(fileVO);
+            resultMap.put("resultFiles", resultFiles);
+        }
+
 
         return "main/NoticeDetail";
     }

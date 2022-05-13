@@ -1,3 +1,5 @@
+
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
@@ -102,20 +104,35 @@
                         공지사항
                     </h4>
                     <div class="mail-tools tooltip-demo m-t-md">
-                        <h3>
-                            <span class="font-noraml"></span><c:out value="${noticeResult.nttSj}"/>
-                        </h3>
-                        <h5>
-                            <span class="pull-right font-noraml"><c:out value="${noticeResult.ntcrNm}"/></span>
-                            <span class="font-noraml"><c:out value="${noticeResult.frstRegisterPnttm}"/></span>
+                        <h1 class="text-center">
+                            <span class="font-noraml text-center"></span><c:out value="${noticeResult.nttSj}"/>
+                        </h1>
+                        <h5 style="color: #5f5f5f">
+                            <span class="pull-right font-noraml"><c:out value="${noticeResult.ntcrNm}"/></span><br>
+                            <span class="font-noraml pull-right"><c:out value="${noticeResult.frstRegisterPnttm}"/></span>
                         </h5>
                     </div>
                 </div>
                 <div class="mail-box">
                     <div class="mail-body">
-                        <c:out value="${noticeResult.nttCn}"/>
-                    </div>
+                   <%-- <spring:htmlEscape defaultHtmlEscape="false"><c:out value="${noticeResult.nttCn}"/></spring:htmlEscape>
+--%>
 
+                        ${noticeResult.nttCn}
+
+                    </div>
+                    <c:if test="${not empty noticeResult.atchFileId}">
+                    <div class="mail-attachment">
+                            <tr style="padding-right: 20px;">
+                                <th>첨부파일 :         </th>
+                                <td colspan="5">
+                                    <c:import url="/cmm/fms/selectFileInfs.do" charEncoding="utf-8">
+                                        <c:param name="param_atchFileId" value="${noticeResult.atchFileId}" />
+                                    </c:import>
+                                </td>
+                            </tr>
+                    </div>
+                    </c:if>
                     <div class="mail-body text-right tooltip-demo">
                         <a class="btn btn-sm btn-white" href="javascript:history.back();"><i class="fa fa-reply"></i> Back to List</a>
                         <%--<a class="btn btn-sm btn-white" href="mail_compose.html"><i class="fa fa-arrow-right"></i> Forward</a>--%>
@@ -218,12 +235,26 @@
 <script src="<c:url value='/'/>js/bootstrap.min.js"></script>
 <script src="<c:url value='/'/>js/plugins/metisMenu/jquery.metisMenu.js"></script>
 <script src="<c:url value='/'/>js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-<script src="<c:url value='/'/>js/plugins/dataTables/datatables.min.js"></script>
+
 <!-- Custom and plugin javascript -->
 <script src="<c:url value='/'/>js/inspinia.js"></script>
 <script src="<c:url value='/'/>js/plugins/pace/pace.min.js"></script>
+<!-- Ladda -->
+<script src="<c:url value='/'/>js/plugins/ladda/spin.min.js"></script>
+<script src="<c:url value='/'/>js/plugins/ladda/ladda.min.js"></script>
+<script src="<c:url value='/'/>js/plugins/ladda/ladda.jquery.min.js"></script>
+<script src="<c:url value='/'/>src/sweetalert.js"></script>
+
+
 <!-- Sweet alert -->
 <script src="<c:url value='/'/>js/plugins/sweetalert/sweetalert.min.js"></script>
+<!-- Peity -->
+<script src="<c:url value='/'/>js/plugins/peity/jquery.peity.min.js"></script>
+<!-- Peity demo -->
+<script src="<c:url value='/'/>js/demo/peity-demo.js"></script>
+<script src="<c:url value='/'/>js/vendors.bundle.js"></script>
+<!-- Toastr script -->
+<script src="<c:url value='/'/>js/plugins/toastr/toastr.min.js"></script>
 
 
 

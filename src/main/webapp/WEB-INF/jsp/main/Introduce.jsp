@@ -19,7 +19,16 @@
 
 
 
+    <!-- Toastr style -->
+    <link href="<c:url value='/'/>css/plugins/toastr/toastr.min.css" rel="stylesheet">
 
+    <!-- Sweet Alert -->
+    <link href="<c:url value='/'/>src/sweetalert.css" rel="stylesheet">
+    <!-- Sweet Alert -->
+    <link href="<c:url value='/'/>css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+
+
+    <link href="<c:url value='/'/>css/bootstrap.min.css" rel="stylesheet">
     <link href="<c:url value='/'/>plugins/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" >
     <link href="<c:url value='/'/>plugins/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" >
     <link href="<c:url value='/'/>plugins/animate-css/animate.css" rel="stylesheet" type="text/css" >
@@ -28,6 +37,8 @@
     <link href="<c:url value='/'/>plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css" >
 
 
+
+    <link href="<c:url value='/'/>font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="<c:url value='/'/>css/animate.css" rel="stylesheet">
     <link href="<c:url value='/'/>css/style2.css" rel="stylesheet">
     <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet" type="text/css" >
@@ -85,7 +96,6 @@
 
 
 <%@include file="/WEB-INF/jsp/main/footer.jsp" %>
-
 <!-- Mainly scripts -->
 <script src="<c:url value='/'/>js/jquery-2.1.1.js"></script>
 <script src="<c:url value='/'/>js/bootstrap.min.js"></script>
@@ -95,20 +105,22 @@
 <!-- Custom and plugin javascript -->
 <script src="<c:url value='/'/>js/inspinia.js"></script>
 <script src="<c:url value='/'/>js/plugins/pace/pace.min.js"></script>
+<!-- Ladda -->
+<script src="<c:url value='/'/>js/plugins/ladda/spin.min.js"></script>
+<script src="<c:url value='/'/>js/plugins/ladda/ladda.min.js"></script>
+<script src="<c:url value='/'/>js/plugins/ladda/ladda.jquery.min.js"></script>
+<script src="<c:url value='/'/>src/sweetalert.js"></script>
 
 
-<!-- Flot -->
-<script src="<c:url value='/'/>js/plugins/flot/jquery.flot.js"></script>
-<script src="<c:url value='/'/>js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-<script src="<c:url value='/'/>js/plugins/flot/jquery.flot.resize.js"></script>
-
-<!-- ChartJS-->
-<script src="<c:url value='/'/>js/plugins/chartJs/Chart.min.js"></script>
-
+<!-- Sweet alert -->
+<script src="<c:url value='/'/>js/plugins/sweetalert/sweetalert.min.js"></script>
 <!-- Peity -->
 <script src="<c:url value='/'/>js/plugins/peity/jquery.peity.min.js"></script>
 <!-- Peity demo -->
 <script src="<c:url value='/'/>js/demo/peity-demo.js"></script>
+<script src="<c:url value='/'/>js/vendors.bundle.js"></script>
+<!-- Toastr script -->
+<script src="<c:url value='/'/>js/plugins/toastr/toastr.min.js"></script>
 
 
 <!-- Page-Level Scripts -->

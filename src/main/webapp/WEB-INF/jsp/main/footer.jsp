@@ -45,7 +45,7 @@
 
 
                         <%
-                           /* LoginVO loginVO = (LoginVO)session.getAttribute("LoginVO");*/
+                            /*LoginVO loginVO = (LoginVO)session.getAttribute("LoginVO");*/
                             if(loginVO == null){
                         %>
                             <li><a href="<c:url value='/'/>uat/uia/egovLoginUsr.do">Login</a></li>

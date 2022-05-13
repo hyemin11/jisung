@@ -147,20 +147,22 @@
     <!-- Custom and plugin javascript -->
     <script src="<c:url value='/'/>js/inspinia.js"></script>
     <script src="<c:url value='/'/>js/plugins/pace/pace.min.js"></script>
+    <!-- Ladda -->
+    <script src="<c:url value='/'/>js/plugins/ladda/spin.min.js"></script>
+    <script src="<c:url value='/'/>js/plugins/ladda/ladda.min.js"></script>
+    <script src="<c:url value='/'/>js/plugins/ladda/ladda.jquery.min.js"></script>
+    <script src="<c:url value='/'/>src/sweetalert.js"></script>
 
 
-    <!-- Flot -->
-    <script src="<c:url value='/'/>js/plugins/flot/jquery.flot.js"></script>
-    <script src="<c:url value='/'/>js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="<c:url value='/'/>js/plugins/flot/jquery.flot.resize.js"></script>
-
-    <!-- ChartJS-->
-    <script src="<c:url value='/'/>js/plugins/chartJs/Chart.min.js"></script>
-
+    <!-- Sweet alert -->
+    <script src="<c:url value='/'/>js/plugins/sweetalert/sweetalert.min.js"></script>
     <!-- Peity -->
     <script src="<c:url value='/'/>js/plugins/peity/jquery.peity.min.js"></script>
     <!-- Peity demo -->
     <script src="<c:url value='/'/>js/demo/peity-demo.js"></script>
+    <script src="<c:url value='/'/>js/vendors.bundle.js"></script>
+    <!-- Toastr script -->
+    <script src="<c:url value='/'/>js/plugins/toastr/toastr.min.js"></script>
 
 
     <!-- Page-Level Scripts -->

@@ -106,7 +106,7 @@
 
                                 <fieldset>
 
-                                    <button type="button" class="btn btn-outline btn-default pull-right" style="margin: 13px 0 0 13px;" onclick="javascript:fn_egov_select_contactList('1'); return false;" >검색</button>
+                                    <button type="button" class="btn btn-outline-success pull-right" style="margin: 13px 0 0 13px;" onclick="javascript:fn_egov_select_contactList('1'); return false;" >검색</button>
                                     <input type="text" name="searchWrd" value='<c:out value="${searchVO.searchWrd}"/>' class="form-control col-md-4 pull-right" style="margin: 0px;">
                                     <select name="searchCnd" class="select pull-right" title="검색조건 선택" style="margin: 13px 13px 0 0;">
                                         <option value="0" <c:if test="${searchVO.searchCnd == '0'}">selected="selected"</c:if> >제목</option>
@@ -213,10 +213,26 @@
 <script src="<c:url value='/'/>js/bootstrap.min.js"></script>
 <script src="<c:url value='/'/>js/plugins/metisMenu/jquery.metisMenu.js"></script>
 <script src="<c:url value='/'/>js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-<script src="<c:url value='/'/>js/plugins/dataTables/datatables.min.js"></script>
+
 <!-- Custom and plugin javascript -->
 <script src="<c:url value='/'/>js/inspinia.js"></script>
 <script src="<c:url value='/'/>js/plugins/pace/pace.min.js"></script>
+<!-- Ladda -->
+<script src="<c:url value='/'/>js/plugins/ladda/spin.min.js"></script>
+<script src="<c:url value='/'/>js/plugins/ladda/ladda.min.js"></script>
+<script src="<c:url value='/'/>js/plugins/ladda/ladda.jquery.min.js"></script>
+<script src="<c:url value='/'/>src/sweetalert.js"></script>
+
+
+<!-- Sweet alert -->
+<script src="<c:url value='/'/>js/plugins/sweetalert/sweetalert.min.js"></script>
+<!-- Peity -->
+<script src="<c:url value='/'/>js/plugins/peity/jquery.peity.min.js"></script>
+<!-- Peity demo -->
+<script src="<c:url value='/'/>js/demo/peity-demo.js"></script>
+<script src="<c:url value='/'/>js/vendors.bundle.js"></script>
+<!-- Toastr script -->
+<script src="<c:url value='/'/>js/plugins/toastr/toastr.min.js"></script>
 
 <script>
     function fn_contact_detail(contactUniqId) {

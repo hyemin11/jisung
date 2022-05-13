@@ -125,7 +125,7 @@
                         <input type="submit" value="실행" onclick="fn_egov_select_noticeList('1'); return false;" id="invisible" class="invisible" />
 
                         <fieldset>
-                            <button type="button" class="btn btn-outline btn-default pull-right" style="margin: 30px 0 0 0;" onclick="javascript:fn_egov_select_noticeList('1'); return false;" >검색</button>
+                            <button type="button" class="btn btn-outline-success pull-right" style="margin: 30px 0 0 0;" onclick="javascript:fn_egov_select_noticeList('1'); return false;" >검색</button>
                             <input type="text" name="searchWrd" value='<c:out value="${searchVO.searchWrd}"/>' class="form-control col-md-4 pull-right" style="margin: 20px;">
                         </fieldset>
                     </form>
@@ -145,10 +145,18 @@
                     <div class="col-md-3">
                         <div class="ibox">
                             <div class="ibox-content product-box">
-                                <div class="product-imitation" style="padding: 0px;">
-                                    <c:import url="/cmm/fms/selectImageFileInfs.do" charEncoding="utf-8">
-                                        <c:param name="atchFileId" value="${resultList.atchFileId}" />
-                                    </c:import>
+                                <div class="product-imitation" style="padding: 0px; ">
+                                    <c:if test="${resultList.atchFileId eq ''}">
+                                        <img src="<c:url value='/'/>images/defaultimage.png" style="object-fit: cover;width: 247px; padding-bottom: 40px; padding-top: 40px"  />
+                                    </c:if>
+                                    <a class="gallery-popup cboxElement" url="<c:url value='/'/>cmm/fms/selectImageFileInfs.do" >
+                                        <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+                                        <c:import url="/cmm/fms/selectImageFileInfs.do" charEncoding="utf-8" >
+                                            <c:param name="atchFileId" value="${resultList.atchFileId}" />
+                                        </c:import>
+
+                                    </a>
+
                                 </div>
                                 <div class="product-desc">
                                     <a href="#" class="product-name"> ${resultList.nttSj}</a>
@@ -476,6 +484,35 @@
 
 <%@include file="/WEB-INF/jsp/main/footer.jsp" %>
 <script>
+
+    $(document).ready(function () {
+        // media popup
+        function mediaPopup()
+        {
+            $('.gallery-popup').colorbox({
+                rel: 'gallery-popup',
+                transition :'slideshow',
+                innerHeight:'500'
+            });
+            $('.popup').colorbox({
+                iframe:true,
+                innerWidth:600,
+                innerHeight:400
+
+            });
+        }
+        mediaPopup();
+
+    });
+
+
+        $('.popup').colorbox({
+            iframe: true,
+            innerWidth: 600,
+            innerHeight: 400
+        });
+    }
+    mediaPopup();
 
     function fn_egov_select_noticeList(pageNo) {
         document.frm.pageIndex.value = pageNo;

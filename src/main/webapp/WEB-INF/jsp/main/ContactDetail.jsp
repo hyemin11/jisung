@@ -58,6 +58,10 @@
 
     <link href="<c:url value='/'/>css/style.css" rel="stylesheet" >
     <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet">
+
+    <!--summernote-->
+    <link rel="stylesheet" href="<c:url value='/'/>summernote-0.8.18-dist/summernote.css">
+
 </head>
 
 <body>
@@ -101,9 +105,9 @@
                             </h3>
                             <h5>
                                 <span class="pull-right font-noraml"><c:out value="${contactDetail.contactDate}"/></span>
-                                <span class="font-noraml">이름  <c:out value="${contactDetail.contactName}"/></span><br>
-                                <span class="font-noraml">이메일  <c:out value="${contactDetail.contactEmail}"/></span><br>
-                                <span class="font-noraml">전화번호 <c:out value="${contactDetail.contactPhone}"/> </span>
+                                <span class="font-noraml" style="color: #ab6700;font-weight: bolder; font-size: medium">성명 : </span>  <c:out value="${contactDetail.contactName}"/><br>
+                                <span class="font-noraml" style="color: #ab6700;font-weight: bolder; font-size: medium">이메일 : </span> <c:out value="${contactDetail.contactEmail}"/><br>
+                                <span class="font-noraml" style="color: #ab6700;font-weight: bolder; font-size: medium">전화번호 :  </span><c:out value="${contactDetail.contactPhone}"/>
                             </h5>
                         </div>
                     </div>
@@ -152,6 +156,10 @@
 
 
 </script>
+<script src="<c:url value='/'/>summernote-0.8.18-dist/summernote.js"></script>
+<script src="<c:url value='/'/>summernote-0.8.18-dist/lang/summernote-ko-KR.js"></script>
+
+<%--<link rel="stylesheet" href="<c:url value='/'/>summernote-0.8.18-dist/summernote.css">--%>
 
 <!-- Mainly scripts -->
 <script src="<c:url value='/'/>js/jquery-2.1.1.js"></script>

@@ -52,7 +52,7 @@
     <link href="<c:url value='/'/>css/style2.css" rel="stylesheet">
     <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet" type="text/css" >
 
-
+    <%--<link href="<c:url value='/'/>bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">--%>
     <style>
         .pagination > li > strong , .pagination > li > span {
            /* background-color: #FFFFFF;*/
@@ -92,7 +92,7 @@
 --%>
                                </div>
                                <div class="col-md-6 pull-right ">
-                                   <form name="frm" action ="<c:url value='/cop/bbs/history.do'/>" method="post">
+                                   <form name="frm" action ="<c:url value='/cop/bbs/history.do'/>" method="post" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                                        <input type="hidden" name="bbsId" value="<c:out value='${boardVO.bbsId}'/>" />
                                        <input type="hidden" name="nttId"  value="0" />
                                        <input type="hidden" name="bbsTyCode" value="<c:out value='${brdMstrVO.bbsTyCode}'/>" />
@@ -105,7 +105,7 @@
 
 
 
-                                           <button type="button" class="btn btn-outline btn-default pull-right" style="margin: 13px 0 0 13px;" onclick="javascript:fn_egov_select_noticeList('1'); return false;" >검색</button>
+                                           <button type="button" class="btn btn-outline-success pull-right" style="margin: 13px 0 0 13px;" onclick="javascript:fn_egov_select_noticeList('1'); return false;" >검색</button>
                                            <input type="text" name="searchWrd" value='<c:out value="${searchVO.searchWrd}"/>' class="form-control col-md-4 pull-right" style="margin: 0px;">
                                            <select name="searchCnd" class="select pull-right" title="검색조건 선택" style="margin: 13px 13px 0 0;">
                                                <option value="0" <c:if test="${searchVO.searchCnd == '0'}">selected="selected"</c:if> >제목</option>
@@ -225,6 +225,22 @@
 <!-- Custom and plugin javascript -->
 <script src="<c:url value='/'/>js/inspinia.js"></script>
 <script src="<c:url value='/'/>js/plugins/pace/pace.min.js"></script>
+<!-- Ladda -->
+<script src="<c:url value='/'/>js/plugins/ladda/spin.min.js"></script>
+<script src="<c:url value='/'/>js/plugins/ladda/ladda.min.js"></script>
+<script src="<c:url value='/'/>js/plugins/ladda/ladda.jquery.min.js"></script>
+<script src="<c:url value='/'/>src/sweetalert.js"></script>
+
+
+<!-- Sweet alert -->
+<script src="<c:url value='/'/>js/plugins/sweetalert/sweetalert.min.js"></script>
+<!-- Peity -->
+<script src="<c:url value='/'/>js/plugins/peity/jquery.peity.min.js"></script>
+<!-- Peity demo -->
+<script src="<c:url value='/'/>js/demo/peity-demo.js"></script>
+<script src="<c:url value='/'/>js/vendors.bundle.js"></script>
+<!-- Toastr script -->
+<script src="<c:url value='/'/>js/plugins/toastr/toastr.min.js"></script>
 
 <script>
     function fn_notice_list(nttId,bbsId) {

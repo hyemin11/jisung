@@ -36,6 +36,18 @@
     <!-- Sweet Alert -->
     <link href="<c:url value='/'/>css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
 
+    <script src="<c:url value= 'https://code.jquery.com/jquery-3.5.1.min.js'/>" crossorigin="anonymous"></script>
+    <script src="<c:url value= 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'/>" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="<c:url value= 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh'/>" crossorigin="anonymous">
+    <script src="<c:url value= 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'/>" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <link href="<c:url value= 'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css'/>" rel="stylesheet">
+    <script src="<c:url value= 'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js'/>"></script>
+
+
+    <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet" type="text/css" >
+
 </head>
 
 <body>
@@ -57,13 +69,39 @@
                                 <form:input path="nttSj" cssClass="form-control form-control-text" id="nttSj"></form:input>
                             </div>
                         </div>
+                        <div class="col-md-8">
+                                <input type="hidden" name="returnUrl" value="/cop/bbs/forUpdateHistory.do"/>
+                                <table class="col-md-8">
+                                    <tr>
+                                        <th height="23"><spring:message code="cop.atchFileList" /></th>
+                                        <td colspan="3">
+                                            <c:import url="/cmm/fms/selectFileInfsForUpdate.do" charEncoding="utf-8">
+                                                <c:param name="param_atchFileId" value="${result.atchFileId}" />
+                                            </c:import>
+                                        </td>
+                                    </tr>
+                                </table>
+                        </div>
+                        <div class="col-md-8" style="margin:20px 0 20px 0">
+                            <table class="col-md-8">
+                                <tr>
+                                    <th height="23"><label for="egovComFileUploader"><spring:message code="cop.atchFile" /></label></th>
+                                    <td colspan="3">
+                                        <input name="file_1" id="egovComFileUploader" type="file" />
+                                        <div id="egovComFileList"></div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+
                     </div>
 
                     <div class="form-group">
                         <label>내용</label>
                         <%--<form:textarea path="nttCn" rows="10" cssClass="form-control form-control-message" id="nttCn"> </form:textarea>--%>
                             <%--<textarea name="nttCn" value="${nttCn}" rows="10" class="form-control form-control-message"></textarea>--%>
-                        <textarea name="nttCn" rows="10" class="form-control form-control-message">${result.nttCn}</textarea>
+                        <textarea name="nttCn" rows="10" id="summernote">${result.nttCn}</textarea>
                     </div>
 
                     <input type="hidden" name="bbsId" value="<c:out value='${result.bbsId}'/>" />
@@ -123,6 +161,53 @@
 
         }
     }
+
+    $('#summernote').summernote({
+
+        height: 300,                 // 에디터 높이
+        minHeight: null,             // 최소 높이
+        maxHeight: null,             // 최대 높이
+        focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+        lang: "ko-KR",					// 한글 설정
+        placeholder: '내용을 입력하세요.',	//placeholder 설정
+        /*   callbacks : {
+               onImageUpload : function (files) {
+                   sendFile(files[0],this);
+
+               }
+           }*/
+
+    });
+    function fn_egov_check_file(flag) {
+        if (flag=="Y") {
+            document.getElementById('file_upload_posbl').style.display = "block";
+            document.getElementById('file_upload_imposbl').style.display = "none";
+        } else {
+            document.getElementById('file_upload_posbl').style.display = "none";
+            document.getElementById('file_upload_imposbl').style.display = "block";
+        }
+    }
+    var existFileNum = document.board.fileListCnt.value;
+    var maxFileNum = document.board.posblAtchFileNumber.value;
+
+    if (existFileNum=="undefined" || existFileNum ==null) {
+        existFileNum = 0;
+    }
+    if (maxFileNum=="undefined" || maxFileNum ==null) {
+        maxFileNum = 0;
+    }
+    var uploadableFileNum = maxFileNum - existFileNum;
+    if (uploadableFileNum<0) {
+        uploadableFileNum = 0;
+    }
+    if (uploadableFileNum != 0) {
+        fn_egov_check_file('Y');
+        var multi_selector = new MultiSelector( document.getElementById( 'egovComFileList' ), uploadableFileNum );
+        multi_selector.addElement( document.getElementById( 'egovComFileUploader' ) );
+    } else {
+        fn_egov_check_file('N');
+    }
+
 </script>
 
 

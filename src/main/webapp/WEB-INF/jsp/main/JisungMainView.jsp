@@ -30,34 +30,6 @@
     <!-- Favicon
   ================================================== -->
     <link rel="icon" type="image/png" href="images/favicon.png">
-
-    <%--<link href="<c:url value='/'/>constra/plugins/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>constra/plugins/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>constra/plugins/animate-css/animate.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>constra/plugins/slick/slick.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>constra/plugins/slick/slick-theme.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>constra/plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet" type="text/css" >
-
-    <link href="<c:url value='/'/>css/bootstrap.min.css" rel="stylesheet">
-    <link href="<c:url value='/'/>constra/plugins/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" >
-
-    <link href="<c:url value='/'/>constra/plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>css/plugins/summernote/summernote.css" rel="stylesheet">
-    <link href="<c:url value='/'/>css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
-    <!-- Sweet Alert -->
-    <link href="<c:url value='/'/>css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
-    <link href="<c:url value='/'/>css/animate.css" rel="stylesheet">
-    <link href="<c:url value='/'/>constra/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
-
-
-    <link href="<c:url value='/'/>font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link href="<c:url value='/'/>css/style2.css" rel="stylesheet">
-    <link href="<c:url value='/'/>css/style.css" rel="stylesheet" >
-    <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet">
-    <link href="<c:url value='/'/>constra/plugins/animate-css/animate.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>constra/plugins/slick/slick.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>constra/plugins/slick/slick-theme.css" rel="stylesheet" type="text/css" >--%>
     <link href="<c:url value='/'/>css/bootstrap.min.css" rel="stylesheet">
     <link href="<c:url value='/'/>constra/plugins/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" >
     <link href="<c:url value='/'/>constra/plugins/animate-css/animate.css" rel="stylesheet" type="text/css" >
@@ -81,24 +53,6 @@
     <link href="<c:url value='/'/>css/style.css" rel="stylesheet" >
     <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet">
 
-  <%--
-        <!-- CSS
-      ================================================== -->
-        <!-- Bootstrap -->
-        <link href="<c:url value='/'/>constra/plugins/bootstrap/bootstrap.min.css" rel="stylesheet" >
-        <!-- FontAwesome -->
-        <link href="<c:url value='/'/>constra/plugins/fontawesome/css/all.min.css" rel="stylesheet">
-        <!-- Animation -->
-        <link href="<c:url value='/'/>constra/plugins/animate-css/animate.css" rel="stylesheet" >
-        <!-- slick Carousel -->
-        <link href="<c:url value='/'/>constra/plugins/slick/slick.css" rel="stylesheet">
-        <link href="<c:url value='/'/>constra/plugins/slick/slick-theme.css" rel="stylesheet">
-        <!-- Colorbox -->
-        <link href="<c:url value='/'/>constra/plugins/colorbox/colorbox.css" rel="stylesheet">
-        <!-- Template styles-->
-        <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet">
-    <!-- Template styles-->
-    <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet">--%>
 
     <style>
         .call-to-action {
@@ -139,71 +93,8 @@
 <body><%--
 <%@include file="/WEB-INF/jsp/main/header.jsp" %>--%>
 <div class="body-inner">
-
-   <%-- <!-- Header start -->
-    <header id="header" class="header-two">
-        <div class="site-navigation">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <nav class="navbar navbar-expand-lg navbar-light p-0">
-
-                            <div class="logo">
-                                <a class="d-block" href="<c:url value='/'/>index.jsp">
-                                    <img loading="lazy" src="<c:url value='/'/>images/com_logo.png" alt="Jisung">
-                                </a>
-                            </div><!-- logo end -->
-
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-
-                            <div id="navbar-collapse" class="collapse navbar-collapse">
-                                <ul class="nav navbar-nav ml-auto align-items-center">
-                                    <li class="nav-item dropdown active">
-                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">스마트공장<i class="fa fa-angle-down"></i></a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="<c:url value='/'/>index.html">스마트공장이란</a></li>
-                                            <li><a href="<c:url value='/'/>index-2.html">정부지원사업</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="nav-item dropdown">
-                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">구축사례</a>
-                                    </li>
-
-                                    <li class="nav-item dropdown">
-                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">솔루션<i class="fa fa-angle-down"></i></a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="<c:url value='/'/>projects.html">MES</a></li>
-                                            <li><a href="<c:url value='/'/>projects-single.html">스마트팜</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="nav-item dropdown">
-                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">고객지원<i class="fa fa-angle-down"></i></a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="<c:url value='/'/>services.html">오시는길</a></li>
-                                            <li><a href="<c:url value='/cop/bbs/selectBoardList.do?bbsId=BBSMSTR_AAAAAAAAAAAA'/>">공지사항</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="header-get-a-quote">
-                                        <a class="btn btn-primary" href="<c:url value='/'/>contact.html">온라인문의</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                    <!--/ Col end -->
-                </div>
-                <!--/ Row end -->
-            </div>
-            <!--/ Container end -->
-
-        </div>
-        <!--/ Navigation end -->
-    </header>
-    <!--/ Header end -->--%>
+    <%@include file="/WEB-INF/jsp/main/header.jsp" %>
+<%--    <!--/ Header end -->&ndash;%&gt;
        <header id="header" class="header-two">
            <div class="site-navigation navbar-fixed">
                <div class="container">
@@ -214,7 +105,7 @@
                                <div class="logo">
                                    <a class="d-block" href="<c:url value='/'/>index.jsp">
                                        <img loading="lazy" src="<c:url value='/'/>images/com_logo.png" alt="Jisung">
-                                       <%--<h3>Jisung Soft</h3>--%>
+                                       &lt;%&ndash;<h3>Jisung Soft</h3>&ndash;%&gt;
                                    </a>
                                </div><!-- logo end -->
 
@@ -285,7 +176,7 @@
 
            </div>
            <!--/ Navigation end -->
-       </header>
+       </header>--%>
 <div class="main-container">
     <div class="banner-carousel banner-carousel-2 mb-0">
         <div class="banner-carousel-item" style="background-image:url(<c:url value='/'/>images/slider-main/bg4.jpg)">
@@ -535,38 +426,7 @@
     <!-- Template custom -->
     <script src="<c:url value='/'/>constra/js/script.js"></script>
 
-   <%-- <script src="<c:url value='/'/>constra/plugins/jQuery/jquery.min.js"></script>
-    <script src="<c:url value='/'/>constra/plugins/bootstrap/bootstrap.min.js"></script>
-    <script src="<c:url value='/'/>constra/plugins/slick/slick.min.js"></script>
-    <script src="<c:url value='/'/>constra/plugins/slick/slick-animation.min.js"></script>
-    <script src="<c:url value='/'/>constra/plugins/colorbox/jquery.colorbox.js"></script>
-    <script src="<c:url value='/'/>constra/plugins/shuffle/shuffle.min.js"></script>
-    <script src="<c:url value='/'/>https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"></script>
-    <script src="<c:url value='/'/>plugins/google-map/map.js"></script>
-    <script src="<c:url value='/'/>constra/js/script.js"></script>--%>
-    <!-- Javascript Files
-    ================================================== -->
 
-    <%-- <!-- initialize jQuery Library -->
-     <script src="plugins/jQuery/jquery.min.js"></script>
-     <!-- Bootstrap jQuery -->
-     <script src="plugins/bootstrap/bootstrap.min.js" defer></script>
-     <!-- Slick Carousel -->
-     <script src="plugins/slick/slick.min.js"></script>
-     <script src="plugins/slick/slick-animation.min.js"></script>
-     <!-- Color box -->
-     <script src="plugins/colorbox/jquery.colorbox.js"></script>
-     <!-- shuffle -->
-     <script src="plugins/shuffle/shuffle.min.js" defer></script>
-
-
-     <!-- Google Map API Key-->
-     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
-     <!-- Google Map Plugin-->
-     <script src="plugins/google-map/map.js" defer></script>
-
-     <!-- Template custom -->
-     <script src="js/script.js"></script>--%>
 
 <!-- Body inner end -->
 </body>
