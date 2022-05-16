@@ -38,32 +38,395 @@
     <!-- Sweet Alert -->
     <link href="<c:url value='/'/>css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
 --%>
+    <link href="<c:url value='/'/>constra/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<c:url value='/'/>constra/plugins/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" >
+    <link href="<c:url value='/'/>constra/plugins/animate-css/animate.css" rel="stylesheet" type="text/css" >
+    <link href="<c:url value='/'/>constra/plugins/slick/slick.css" rel="stylesheet" type="text/css" >
+    <link href="<c:url value='/'/>constra/plugins/slick/slick-theme.css" rel="stylesheet" type="text/css" >
+    <link href="<c:url value='/'/>constra/plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css" >
 
-    <link href="<c:url value='/'/>css/bootstrap.min.css" rel="stylesheet">
-    <link href="<c:url value='/'/>plugins/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/animate-css/animate.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/slick/slick.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/slick/slick-theme.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css" >
-
-
-    <link href="<c:url value='/'/>css/animate.css" rel="stylesheet">
-    <link href="<c:url value='/'/>css/style2.css" rel="stylesheet">
-    <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet" type="text/css" >
+    <link href="<c:url value='/'/>css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="<c:url value='/'/>css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
     <!-- Sweet Alert -->
     <link href="<c:url value='/'/>css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <link href="<c:url value='/'/>css/animate.css" rel="stylesheet">
+    <link href="<c:url value='/'/>constra/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+
     <link href="<c:url value='/'/>font-awesome/css/font-awesome.css" rel="stylesheet">
 
+
+    <link href="<c:url value='/'/>css/style2.css" rel="stylesheet">
+
+    <link href="<c:url value='/'/>css/style.css" rel="stylesheet" >
+    <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet">
+
 </head>
+<body>
+
+<div class="body-inner ">
+    <div class=" min-vh-100">
+        <%@include file="/WEB-INF/jsp/main/header.jsp" %>
+        <div class="container">
+            <div class="col-md-12 ">
+                <div class="col-md-12 ">
+                    <div class="mail-box-header">
+                        <div class="pull-right tooltip-demo">
+                            <%
+                                /* LoginVO loginVO = (LoginVO)session.getAttribute("LoginVO");*/
+                                if(loginVO == null){
+                            %>
+                            <% }else { %>
+                            <form name="articleForm" action="cop/bbs/forUpdateBoardArticle.do" method="post" style="float:left;">
+                                <input type="hidden" name="parnts" value="<c:out value='${noticeResult.parnts}'/>" >
+                                <input type="hidden" name="sortOrdr" value="<c:out value='${noticeResult.sortOrdr}'/>" >
+                                <input type="hidden" name="replyLc" value="<c:out value='${noticeResult.replyLc}'/>" >
+                                <input type="hidden" name="nttSj" value="<c:out value='${noticeResult.nttSj}'/>" >
+                                <input name="nttId" type="hidden" value="<c:out value="${noticeResult.nttId}" />">
+                                <input name="ntcrNm" type="hidden" value="<c:out value="${noticeResult.ntcrNm}" />">
+                                <button type="button" class="btn btn-white btn-sm" onclick="javascript:fn_update_notice();"><i class="fa fa-edit"></i> Edit</button><!-- 수정 -->
+                            </form>
+                            <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Move to trash"  onclick="fn_delete_notice()"><i class="fa fa-trash-o"></i>Remove</button>
+                            <% } %>
+                        </div>
+                        <h4>
+                            공지사항
+                        </h4>
+                        <div class="mail-tools tooltip-demo m-t-md">
+                            <h1 class="text-center">
+                                <span class="font-noraml text-center"></span><c:out value="${noticeResult.nttSj}"/>
+                            </h1>
+                            <h5 style="color: #5f5f5f">
+                                <span class="pull-right font-noraml"><c:out value="${noticeResult.ntcrNm}"/></span><br>
+                                <span class="font-noraml pull-right"><c:out value="${noticeResult.frstRegisterPnttm}"/></span>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+
+
+                    <div class="mail-box">
+                        <form name="noticeResult" method="post" action="<c:url value='/'/>cop/bbs/noticeDelete.do">
+                            <input type="hidden" name="bbsId" value="<c:out value="${noticeResult.bbsId}"/>"/>
+                            <input type="hidden" name="nttId" value="<c:out value="${noticeResult.nttId}"/>"/>
+
+                            <div class="mail-body">
+                                ${noticeResult.nttCn}
+                            </div>
+                            <c:if test="${not empty noticeResult.atchFileId}">
+                                <div class="mail-attachment">
+                                    <tr style="padding-right: 20px;">
+                                        <th>첨부파일 :         </th>
+                                        <td colspan="5">
+                                            <c:import url="/cmm/fms/selectFileInfs.do" charEncoding="utf-8">
+                                                <c:param name="param_atchFileId" value="${noticeResult.atchFileId}" />
+                                            </c:import>
+                                        </td>
+                                    </tr>
+                                </div>
+                            </c:if>
+                            <div class="col-md-12 text-right tooltip-demo">
+                                <a class="btn btn-sm btn-white" href="javascript:history.back();"><i class="fa fa-reply"></i> Back to List</a>
+                                <%
+                                    /* LoginVO loginVO = (LoginVO)session.getAttribute("LoginVO");*/
+                                    if(loginVO == null){
+                                %>
+                                <% }else { %>
+                                <button title="" type="button"  onclick="javascript:fn_delete_notice();" data-placement="top" data-toggle="tooltip" data-original-title="Trash" class="btn btn-sm btn-white"><i class="fa fa-trash-o"></i> Remove</button>
+                                <% } %>
+                            </div>
+                            <div class="clearfix"></div>
+
+                        </form>
+
+                    </div>
+
+                    <div class="col-md-12" style="padding-bottom:10em" >
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <%@include file="/WEB-INF/jsp/main/footer.jsp" %>
+
+
+    </div>
+</div>
+
+
+
+<script>
+
+    function fn_update_notice()
+    {
+        document.noticeResult.action="<c:url value='/cop/bbs/forUpdateNotice.do' />"
+        document.noticeResult.submit();
+    }
+
+
+    function fn_delete_notice(){
+        swal({
+            title: "삭제하시겠습니까?",
+            text: "삭제후 복구불가",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "삭제",
+            closeOnConfirm: false
+        }, function (){
+            swal("","삭제되었습니다.","success");
+            setTimeout(function (){
+                document.noticeResult.action="<c:url value='/cop/bbs/noticeDelete.do' />";
+                document.noticeResult.submit();
+            },2000);
+        });
+    }
+
+</script>
+<!-- initialize jQuery Library -->
+<script src="<c:url value='/'/>constra/plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap jQuery -->
+<script src="<c:url value='/'/>constra/plugins/bootstrap/bootstrap.min.js" defer></script>
+<!-- Slick Carousel -->
+<script src="<c:url value='/'/>constra/plugins/slick/slick.min.js"></script>
+<script src="<c:url value='/'/>constra/plugins/slick/slick-animation.min.js"></script>
+<!-- Color box -->
+<script src="<c:url value='/'/>constra/plugins/colorbox/jquery.colorbox.js"></script>
+<!-- shuffle -->
+<script src="<c:url value='/'/>constra/plugins/shuffle/shuffle.min.js" defer></script>
+
+<!-- Template custom -->
+<script src="<c:url value='/'/>constra/js/script.js"></script>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%--
 
 <body>
+<div class="main-container" style=""><%@include file="/WEB-INF/jsp/main/header.jsp" %>
+            <div class="container">
+                 <div class="col-md-12">
+                    <div class="col-md-12">
+                        <div class="mail-box-header">
+                            <div class="pull-right tooltip-demo">
+                                <%
+                                    /* LoginVO loginVO = (LoginVO)session.getAttribute("LoginVO");*/
+                                    if(loginVO == null){
+                                %>
+                                <% }else { %>
+                                <form name="articleForm" action="cop/bbs/forUpdateBoardArticle.do" method="post" style="float:left;">
+                                    <input type="hidden" name="parnts" value="<c:out value='${noticeResult.parnts}'/>" >
+                                    <input type="hidden" name="sortOrdr" value="<c:out value='${noticeResult.sortOrdr}'/>" >
+                                    <input type="hidden" name="replyLc" value="<c:out value='${noticeResult.replyLc}'/>" >
+                                    <input type="hidden" name="nttSj" value="<c:out value='${noticeResult.nttSj}'/>" >
+                                    <input name="nttId" type="hidden" value="<c:out value="${noticeResult.nttId}" />">
+                                    <input name="ntcrNm" type="hidden" value="<c:out value="${noticeResult.ntcrNm}" />">
+                                    <button type="button" class="btn btn-white btn-sm" onclick="javascript:fn_update_notice();"><i class="fa fa-edit"></i> Edit</button><!-- 수정 -->
+                                </form>
+                                <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Move to trash"  onclick="fn_delete_notice()"><i class="fa fa-trash-o"></i>Remove</button>
+                                <% } %>
+                            </div>
+                            <h4>
+                                공지사항
+                            </h4>
+                            <div class="mail-tools tooltip-demo m-t-md">
+                                <h1 class="text-center">
+                                    <span class="font-noraml text-center"></span><c:out value="${noticeResult.nttSj}"/>
+                                </h1>
+                                <h5 style="color: #5f5f5f">
+                                    <span class="pull-right font-noraml"><c:out value="${noticeResult.ntcrNm}"/></span><br>
+                                    <span class="font-noraml pull-right"><c:out value="${noticeResult.frstRegisterPnttm}"/></span>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+
+
+                        <div class="mail-box">
+                            <form name="noticeResult" method="post" action="<c:url value='/'/>cop/bbs/noticeDelete.do">
+                                <input type="hidden" name="bbsId" value="<c:out value="${noticeResult.bbsId}"/>"/>
+                                <input type="hidden" name="nttId" value="<c:out value="${noticeResult.nttId}"/>"/>
+
+                                <div class="mail-body">
+                                    ${noticeResult.nttCn}
+                                </div>
+                                <c:if test="${not empty noticeResult.atchFileId}">
+                                    <div class="mail-attachment">
+                                        <tr style="padding-right: 20px;">
+                                            <th>첨부파일 :         </th>
+                                            <td colspan="5">
+                                                <c:import url="/cmm/fms/selectFileInfs.do" charEncoding="utf-8">
+                                                    <c:param name="param_atchFileId" value="${noticeResult.atchFileId}" />
+                                                </c:import>
+                                            </td>
+                                        </tr>
+                                    </div>
+                                </c:if>
+                                <div class="col-md-12 text-right tooltip-demo">
+                                    <a class="btn btn-sm btn-white" href="javascript:history.back();"><i class="fa fa-reply"></i> Back to List</a>
+                                    <%
+                                        /* LoginVO loginVO = (LoginVO)session.getAttribute("LoginVO");*/
+                                        if(loginVO == null){
+                                    %>
+                                    <% }else { %>
+                                    <button title="" type="button"  onclick="javascript:fn_delete_notice();" data-placement="top" data-toggle="tooltip" data-original-title="Trash" class="btn btn-sm btn-white"><i class="fa fa-trash-o"></i> Remove</button>
+                                    <% } %>
+                                </div>
+                                <div class="clearfix"></div>
+
+                            </form>
+
+                        </div>
+
+                        <div class="col-md-12" >
+
+                        </div>
+                    </div>
+                 </div>
+                <%@include file="/WEB-INF/jsp/main/footer.jsp" %>
+            </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+    <script>
+
+        function fn_update_notice()
+        {
+            document.noticeResult.action="<c:url value='/cop/bbs/forUpdateNotice.do' />"
+            document.noticeResult.submit();
+        }
+
+
+        function fn_delete_notice(){
+            swal({
+                title: "삭제하시겠습니까?",
+                text: "삭제후 복구불가",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "삭제",
+                closeOnConfirm: false
+            }, function (){
+                swal("","삭제되었습니다.","success");
+                setTimeout(function (){
+                    document.noticeResult.action="<c:url value='/cop/bbs/noticeDelete.do' />";
+                    document.noticeResult.submit();
+                },2000);
+            });
+        }
+
+    </script>
+    <!-- initialize jQuery Library -->
+    <script src="<c:url value='/'/>constra/plugins/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap jQuery -->
+    <script src="<c:url value='/'/>constra/plugins/bootstrap/bootstrap.min.js" defer></script>
+    <!-- Slick Carousel -->
+    <script src="<c:url value='/'/>constra/plugins/slick/slick.min.js"></script>
+    <script src="<c:url value='/'/>constra/plugins/slick/slick-animation.min.js"></script>
+    <!-- Color box -->
+    <script src="<c:url value='/'/>constra/plugins/colorbox/jquery.colorbox.js"></script>
+    <!-- shuffle -->
+    <script src="<c:url value='/'/>constra/plugins/shuffle/shuffle.min.js" defer></script>
+
+    <!-- Template custom -->
+    <script src="<c:url value='/'/>constra/js/script.js"></script>
+
+
+    &lt;%&ndash;<!-- Mainly scripts -->
+    <script src="<c:url value='/'/>js/jquery-2.1.1.js"></script>
+    <script src="<c:url value='/'/>js/bootstrap.min.js"></script>
+    <script src="<c:url value='/'/>js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="<c:url value='/'/>js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="<c:url value='/'/>js/inspinia.js"></script>
+    <script src="<c:url value='/'/>js/plugins/pace/pace.min.js"></script>
+    <!-- Ladda -->
+    <script src="<c:url value='/'/>js/plugins/ladda/spin.min.js"></script>
+    <script src="<c:url value='/'/>js/plugins/ladda/ladda.min.js"></script>
+    <script src="<c:url value='/'/>js/plugins/ladda/ladda.jquery.min.js"></script>
+    <script src="<c:url value='/'/>src/sweetalert.js"></script>
+
+
+    <!-- Sweet alert -->
+    <script src="<c:url value='/'/>js/plugins/sweetalert/sweetalert.min.js"></script>
+    <!-- Peity -->
+    <script src="<c:url value='/'/>js/plugins/peity/jquery.peity.min.js"></script>
+    <!-- Peity demo -->
+    <script src="<c:url value='/'/>js/demo/peity-demo.js"></script>
+    <script src="<c:url value='/'/>js/vendors.bundle.js"></script>
+    <!-- Toastr script -->
+    <script src="<c:url value='/'/>js/plugins/toastr/toastr.min.js"></script>&ndash;%&gt;
+
+
+</body>
+--%>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%--
+<body>
+
+
+
+
+
+
+
+
+
+
+<div class="body-inner">
 <%@include file="/WEB-INF/jsp/main/header.jsp" %>
 
-<section id="main-container" class="main-container">
+
     <div class="container">
         <div class="row">
-            <%--<h4>공지사항</h4>--%>
+            &lt;%&ndash;<h4>공지사항</h4>&ndash;%&gt;
             <div class="col-md-12">
                 <form name="noticeResult" method="post" action="/cop/bbs/noticeDelete.do">
                     <input type="hidden" name="bbsId" value="<c:out value="${noticeResult.bbsId}"/>"/>
@@ -85,19 +448,19 @@
                             <input type="hidden" name="nttSj" value="<c:out value='${noticeResult.nttSj}'/>" >
                             <input name="nttId" type="hidden" value="<c:out value="${noticeResult.nttId}" />">
                             <input name="ntcrNm" type="hidden" value="<c:out value="${noticeResult.ntcrNm}" />">
-                            <%--<input name="bbsId" type="hidden" value="<c:out value="${brdMstrVO.bbsId}" />">--%>
+                            &lt;%&ndash;<input name="bbsId" type="hidden" value="<c:out value="${brdMstrVO.bbsId}" />">&ndash;%&gt;
                             <button type="button" class="btn btn-white btn-sm" onclick="javascript:fn_update_notice();"><i class="fa fa-edit"></i> Edit</button><!-- 수정 -->
                         </form>
-<%--
+&lt;%&ndash;
                             <a href="#" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Reply"><i class="fa fa-edit"></i> Edit</a>
---%>
+&ndash;%&gt;
 
 
 
                         <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Move to trash"  onclick="fn_delete_notice()"><i class="fa fa-trash-o"></i>Remove</button>
-<%--
+&lt;%&ndash;
                             <a href="mailbox.html" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Move to trash" onclick="fn_delete_notice(<c:out value='${noticeResult.bbsId}'/>,<c:out value='${noticeResult.nttId}'/>)"><i class="fa fa-trash-o"></i> </a>
---%>
+&ndash;%&gt;
                         <% } %>
                     </div>
                     <h4>
@@ -115,8 +478,8 @@
                 </div>
                 <div class="mail-box">
                     <div class="mail-body">
-                   <%-- <spring:htmlEscape defaultHtmlEscape="false"><c:out value="${noticeResult.nttCn}"/></spring:htmlEscape>
---%>
+                   &lt;%&ndash; <spring:htmlEscape defaultHtmlEscape="false"><c:out value="${noticeResult.nttCn}"/></spring:htmlEscape>
+&ndash;%&gt;
 
                         ${noticeResult.nttCn}
 
@@ -135,7 +498,7 @@
                     </c:if>
                     <div class="mail-body text-right tooltip-demo">
                         <a class="btn btn-sm btn-white" href="javascript:history.back();"><i class="fa fa-reply"></i> Back to List</a>
-                        <%--<a class="btn btn-sm btn-white" href="mail_compose.html"><i class="fa fa-arrow-right"></i> Forward</a>--%>
+                        &lt;%&ndash;<a class="btn btn-sm btn-white" href="mail_compose.html"><i class="fa fa-arrow-right"></i> Forward</a>&ndash;%&gt;
 
 
                         <%
@@ -145,9 +508,9 @@
                         <% }else { %>
                         <button title="" type="button"  onclick="javascript:fn_delete_notice();" data-placement="top" data-toggle="tooltip" data-original-title="Trash" class="btn btn-sm btn-white"><i class="fa fa-trash-o"></i> Remove</button>
 
-                    <%--
+                    &lt;%&ndash;
                         <button title="" type="button"  onclick="javascript:fn_delete_notice(<c:out value='${noticeResult.bbsId}'/>,<c:out value='${noticeResult.nttId}'/>);" data-placement="top" data-toggle="tooltip" data-original-title="Trash" class="btn btn-sm btn-white"><i class="fa fa-trash-o"></i> Remove</button>
---%>
+&ndash;%&gt;
                         <% } %>
 
 
@@ -157,9 +520,9 @@
 
 
 
-<%--
+&lt;%&ndash;
                         <button title="" type="button"  onclick="javascript:fn_delete_notice(<c:out value='${noticeResult.bbsId}'/>,<c:out value='${noticeResult.nttId}'/>);" data-placement="top" data-toggle="tooltip" data-original-title="Trash" class="btn btn-sm btn-white"><i class="fa fa-trash-o"></i> Remove</button>
---%>
+&ndash;%&gt;
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -167,9 +530,9 @@
             </div>
         </div>
     </div>
-</section>
+    <%@include file="/WEB-INF/jsp/main/footer.jsp" %>
 
-<%@include file="/WEB-INF/jsp/main/footer.jsp" %>
+
 <script>
 
     /*function fn_delete_notice() {
@@ -258,5 +621,10 @@
 
 
 
+</div>
+
     </body>
-    </html>
+--%>
+
+
+

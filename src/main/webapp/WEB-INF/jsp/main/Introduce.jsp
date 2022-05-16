@@ -48,11 +48,73 @@
     </style>
 </head>
 <body>
-
 <%@include file="/WEB-INF/jsp/main/header.jsp" %>
-<section class="banner">
-    <div class="container">
-        <div class="row justify-content-center text-center">
+<div class="body-inner">
+    <div id="main-container" class="main-container">
+        <div class="container">
+            <div class=" justify-content-center text-center ">
+                <div class="text-center article-title">
+                    <h1>
+                        지성소프트는
+                    </h1>
+                </div>
+            </div>
+            <div class="col-lg-12" >
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <div class="content">
+                            <p>
+                                지성소프트는 제조 업종에 특화된 ERP.MES 솔루션을 전문적으로 컨설팅합니다.
+                                <br>
+                                특히, 현업 실무 경험을 바탕으로 산업구별 특화된 기능 및 컨설팅 서비스를 제공하고 있습니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="ibox-content"
+                         style="background-image: url('<c:url value='/'/>images/introback.png');
+                                 background-size: contain;
+                                 background-repeat: no-repeat;
+                                 background-position: right;
+                                 "
+                    >
+                        <ul>
+                            <h3><li>고객 이익 창출</li></h3>
+                            <h3><li>고객 경쟁력 강화</li></h3>
+                            <h3><li>고도의 생산성 향상</li></h3>
+                            <h3><li>정보화 기반 기업혁신 컨설팅 회사 </li></h3>
+                        </ul>
+                        <br>
+                        <p> 4차 산업혁명의 사회의 환경에서 경쟁력 우위를 점하기 위한 효과적인 고객지향적 Smart Factory 컨설팅 제공.</p>
+                        <p> 고객사업의 가치를 높이고 완성시키는 최고의 파트너!</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div><%@include file="/WEB-INF/jsp/main/footer.jsp" %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%--
+<div class="banner">
+    <%@include file="/WEB-INF/jsp/main/header.jsp" %>
+
+    <div class="container min-vh-100"  >
+        <div class=" justify-content-center text-center ">
             <div class="text-center article-title">
                 <h1>
                     지성소프트는
@@ -89,13 +151,16 @@
                 </div>
             </div>
         </div>
+        <%@include file="/WEB-INF/jsp/main/footer.jsp" %>
     </div>
-</section>
+
+</div>
+--%>
 
 
 
 
-<%@include file="/WEB-INF/jsp/main/footer.jsp" %>
+
 <!-- Mainly scripts -->
 <script src="<c:url value='/'/>js/jquery-2.1.1.js"></script>
 <script src="<c:url value='/'/>js/bootstrap.min.js"></script>

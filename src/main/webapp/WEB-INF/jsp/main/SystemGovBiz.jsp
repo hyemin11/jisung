@@ -28,67 +28,72 @@
 
 </head>
 <body>
-<%@include file="/WEB-INF/jsp/main/header.jsp" %>
-<section class="banner">
-    <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="text-center article-title">
-                <h1>
-                    SYSTEM 영역 - 기업 비즈니스
-                </h1>
+
+<div class="body-inner">
+    <div class="min-vh-100">
+    <%@include file="/WEB-INF/jsp/main/header.jsp" %>
+    <div id="container" class="main-container " >
+        <div class="container">
+            <div class=" justify-content-center text-center ">
+                <div class="text-center article-title">
+                    <h1>
+                        SYSTEM 영역 - 기업 비즈니스
+                    </h1>
+                </div>
             </div>
-        </div>
-        <div class="col-lg-12">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h4>ERP</h4>
-                    <div class="content">
-                        <img src="<c:url value='/'/>images/erp.png">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h4>ERP</h4>
+                        <div class="content">
+                            <img src="<c:url value='/'/>images/erp.png">
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox-title">
+                        <h4>CRM</h4>
+                        <img src="<c:url value='/'/>images/erp2.png">
+                    </div>
+
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox-title">
+                        <h4>PLM</h4>
+                        <img src="<c:url value='/'/>images/erp3.png">
+                    </div>
+
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 200px">
+                <div class="col-lg-6">
+                    <div class="ibox-title">
+                        <h4>APS</h4>
+                        <img src="<c:url value='/'/>images/erp4.png">
+                    </div>
+
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox-title">
+                        <h4>E-Procurement</h4>
+                        <img src="<c:url value='/'/>images/erp5.png">
+                    </div>
+
+                </div>
+            </div>
+
         </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="ibox-title">
-                    <h4>CRM</h4>
-                    <img src="<c:url value='/'/>images/erp2.png">
-                </div>
-
-            </div>
-            <div class="col-lg-6">
-                <div class="ibox-title">
-                    <h4>PLM</h4>
-                    <img src="<c:url value='/'/>images/erp3.png">
-                </div>
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="ibox-title">
-                    <h4>APS</h4>
-                    <img src="<c:url value='/'/>images/erp4.png">
-                </div>
-
-            </div>
-            <div class="col-lg-6">
-                <div class="ibox-title">
-                    <h4>E-Procurement</h4>
-                    <img src="<c:url value='/'/>images/erp5.png">
-                </div>
-
-            </div>
-        </div>
-
-
-
     </div>
+    <%@include file="/WEB-INF/jsp/main/footer.jsp" %>
+</div>
+</div>
 
-    </div>
-</section>
 
-<%@include file="/WEB-INF/jsp/main/footer.jsp" %>
+
+
+
 
 <script>
 

@@ -9,10 +9,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title>Title</title>
-</head>
 <body>
+<footer id="footer" class="footer" style="background: #ffb600; width: 100%;">
 <div class="copyright">
     <div class="container">
         <div class="row align-items-center">
@@ -114,5 +112,6 @@
 </footer><!-- Footer end -->--%>
 
 
+</footer>
 </body>
 </html>

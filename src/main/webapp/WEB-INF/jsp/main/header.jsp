@@ -14,20 +14,19 @@
 &ndash;%&gt;--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
+<%--<head>
     <title>Title</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Construction Html5 Template">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
-
-</head>
+</head>--%>
 <!-- Header start -->
 
 
 
-
-    <header id="header" class="header-one" >
+    <!--/ Topbar end -->
+    <header id="header" class="header-one">
         <%-- <div class="site-navigation navbar-fixed">--%>
         <div class="bg-white">
             <div class="container">
@@ -40,8 +39,7 @@
                         </div><!-- logo end -->
 
                         <div class="col-lg-9 header-right">
-                            <ul class="top-info-box">
-                            </ul><!-- Ul end -->
+
                         </div><!-- header right end -->
                     </div><!-- logo area end -->
 
@@ -107,20 +105,23 @@
                                         </ul>
                                     </li>
 
-                                    <li class="header-get-a-quote" >
 
-                                    </li>
 
 
                                 </ul>
-                                <%
-                                    LoginVO loginVO = (LoginVO)session.getAttribute("LoginVO");
-                                    if(loginVO == null){
-                                %>
-                                <a class="btn btn-primary" href="<c:url value='/cop/bbs/contactWrite.do' />" >온라인문의</a>
-                                <% } else if (loginVO !=null ){ %>
-                                <a class="btn btn-primary" href="<c:url value='/cop/bbs/contactList.do' />" >문의목록</a>
-                                <% }  %>
+                                <ul class="nav">
+                                    <li class="header-get-a-quote" >
+                                        <%
+                                            LoginVO loginVO = (LoginVO)session.getAttribute("LoginVO");
+                                            if(loginVO == null){
+                                        %>
+                                        <a class="btn btn-primary" href="<c:url value='/cop/bbs/contactWrite.do' />" >온라인문의</a>
+                                        <% } else if (loginVO !=null ){ %>
+                                        <a class="btn btn-primary" href="<c:url value='/cop/bbs/contactList.do' />" >문의목록</a>
+                                        <% }  %>
+                                    </li>
+                                </ul>
+
                             </div>
                         </nav>
                     </div>
@@ -128,58 +129,20 @@
                 </div>
                 <!--/ Row end -->
 
-                <%--<div class="nav-search">
-                    <span id="search"><i class="fa fa-search"></i></span>
-                </div><!-- Search end -->
-
-                <div class="search-block" style="display: none;">
-                    <label for="search-field" class="w-100 mb-0">
-                        <input type="text" class="form-control" id="search-field" placeholder="Type what you want and enter">
-                    </label>
-                    <span class="search-close">&times;</span>
-                </div><!-- Site search end -->--%>
             </div>
             <!-- Container end -->
 
         </div>
         <!-- Navigation end -->
+
+
     </header>
-<script>
-    jQuery(function ($) {
-        'use strict';
-        /* ----------------------------------------------------------- */
-        /*  Fixed header
-        /* ----------------------------------------------------------- */
-        $(window).on('scroll', function () {
 
-            // fixedHeader on scroll
-            function fixedHeader() {
-                var headerTopBar = $('.bg-white').outerHeight();
-                var headerOneTopSpace = $('.header-one .logo-area').outerHeight();
 
-                var headerOneELement = $('.header-one .site-navigation');
-                var headerTwoELement = $('.header-two .site-navigation');
 
-                if ($(window).scrollTop() > $('.imageee').css('width') ) {
-                    $(headerOneELement).addClass('navbar-fixed');
-                    $('.header-one').css('margin-bottom', headerOneELement.outerHeight());
-                } else {
-                    $(headerOneELement).removeClass('navbar-fixed');
-                    $('.header-one').css('margin-bottom', 0);
-                }
-                if ($(window).scrollTop() > headerTopBar) {
-                    $(headerTwoELement).addClass('navbar-fixed');
-                    $('.header-two').css('margin-bottom', headerTwoELement.outerHeight());
-                } else {
-                    $(headerTwoELement).removeClass('navbar-fixed');
-                    $('.header-two').css('margin-bottom', 0);
-                }
-            }
-            fixedHeader();
-        });
-    })
 
-</script>
+
+
 </html>
 
 

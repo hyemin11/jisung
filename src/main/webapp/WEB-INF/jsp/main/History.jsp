@@ -21,6 +21,31 @@
     <meta name="description" content="Construction Html5 Template">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link href="<c:url value='/'/>css/bootstrap.min.css" rel="stylesheet">
+    <link href="<c:url value='/'/>constra/plugins/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" >
+    <link href="<c:url value='/'/>constra/plugins/animate-css/animate.css" rel="stylesheet" type="text/css" >
+    <link href="<c:url value='/'/>constra/plugins/slick/slick.css" rel="stylesheet" type="text/css" >
+    <link href="<c:url value='/'/>constra/plugins/slick/slick-theme.css" rel="stylesheet" type="text/css" >
+    <link href="<c:url value='/'/>constra/plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css" >
+
+    <link href="<c:url value='/'/>css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="<c:url value='/'/>css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+    <!-- Sweet Alert -->
+    <link href="<c:url value='/'/>css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <link href="<c:url value='/'/>css/animate.css" rel="stylesheet">
+    <link href="<c:url value='/'/>constra/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+
+    <link href="<c:url value='/'/>font-awesome/css/font-awesome.css" rel="stylesheet">
+
+
+    <link href="<c:url value='/'/>css/style2.css" rel="stylesheet">
+
+    <link href="<c:url value='/'/>css/style.css" rel="stylesheet" >
+    <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet">
+<%--
+
     <link href="<c:url value='/'/>css/bootstrap.min.css" rel="stylesheet">
     <link href="<c:url value='/'/>plugins/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" >
     <link href="<c:url value='/'/>plugins/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" >
@@ -37,6 +62,7 @@
     <!-- Sweet Alert -->
     <link href="<c:url value='/'/>css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
     <link href="<c:url value='/'/>font-awesome/css/font-awesome.css" rel="stylesheet">
+--%>
 
     <style>
         .btnn-custom {
@@ -82,7 +108,7 @@
              padding: 4px 10px;
              position: relative;
              text-decoration: none;
-
+         }
     </style>
 
 </head>
@@ -93,12 +119,13 @@
         document.board.action = "<c:url value='/cop/bbs/historyWrite.do'/>";
         document.board.submit();
     }
-</script>
+</script><%@include file="/WEB-INF/jsp/main/header.jsp" %>
+<div class="body-inner">
 <!-- Header start -->
-<%@include file="/WEB-INF/jsp/main/header.jsp" %>
+
 
 <section id="main-container" class="main-container">
-    <div class="container">
+    <div class="container"><h1>구축사례</h1>
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
                 <div class="col-md-6 pull-left ">
@@ -149,17 +176,24 @@
                                     <c:if test="${resultList.atchFileId eq ''}">
                                         <img src="<c:url value='/'/>images/defaultimage.png" style="object-fit: cover;width: 247px; padding-bottom: 40px; padding-top: 40px"  />
                                     </c:if>
-                                    <a class="gallery-popup cboxElement" url="<c:url value='/'/>cmm/fms/selectImageFileInfs.do" >
-                                        <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+                                    <%--<a class="gallery-popup cboxElement" url="<c:url value='/'/>cmm/fms/selectImageFileInfs.do" >
+                                        <span class="gallery-icon"><i class="fa fa-plus"></i></span>--%>
                                         <c:import url="/cmm/fms/selectImageFileInfs.do" charEncoding="utf-8" >
                                             <c:param name="atchFileId" value="${resultList.atchFileId}" />
                                         </c:import>
 
-                                    </a>
 
                                 </div>
                                 <div class="product-desc">
-                                    <a href="#" class="product-name"> ${resultList.nttSj}</a>
+                                    <form:form modelAttribute="resultList" name="resultList" method="post" action="/cop/bbs/historyDetail.do">
+                                        <td>
+                                            <input type="hidden" name="nttId" value="<c:out value='${resultList.nttId}' />" />
+                                            <input type="hidden" name="bbsId" value="<c:out value='${resultList.bbsId}' />" />
+                                            <input type="submit" value="<c:out value='${resultList.nttSj}' />" class="product-name"
+                                                   style="border:0px;background: transparent;" onclick="javascript:fn_notice_list(${resultList.nttId}, ${resultList.bbsId})" />
+                                        </td>
+                                    </form:form>
+                                    <%--<a href="<c:url value='/'/>cop/bbs/historyDetail.do" class="product-name"> ${resultList.nttSj}</a>--%>
                                     <div class="small m-t-xs">
                                                 ${resultList.nttCn}
                                     </div>
@@ -224,6 +258,8 @@
                         </td>
                     </tr>
                 </table>
+            </div>
+        </div>
 
                 <%--<div class="col-md-3">
                     <div class="ibox">
@@ -470,19 +506,13 @@
 
 
 
-
-
-
-
-
-
-
     </div><!-- Conatiner end -->
+
 </section><!-- Main container end -->
 
 
-
 <%@include file="/WEB-INF/jsp/main/footer.jsp" %>
+
 <script>
 
     $(document).ready(function () {
@@ -576,6 +606,26 @@
     }
 </script>
 
+
+
+<!-- initialize jQuery Library -->
+<script src="<c:url value='/'/>constra/plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap jQuery -->
+<script src="<c:url value='/'/>constra/plugins/bootstrap/bootstrap.min.js" defer></script>
+<!-- Slick Carousel -->
+<script src="<c:url value='/'/>constra/plugins/slick/slick.min.js"></script>
+<script src="<c:url value='/'/>constra/plugins/slick/slick-animation.min.js"></script>
+<!-- Color box -->
+<script src="<c:url value='/'/>constra/plugins/colorbox/jquery.colorbox.js"></script>
+<!-- shuffle -->
+<script src="<c:url value='/'/>constra/plugins/shuffle/shuffle.min.js" defer></script>
+
+<!-- Template custom -->
+<script src="<c:url value='/'/>constra/js/script.js"></script>
+
+
+
+
     <!-- Mainly scripts -->
 <script src="<c:url value='/'/>js/jquery-2.1.1.js"></script>
 <script src="<c:url value='/'/>js/bootstrap.min.js"></script>
@@ -587,28 +637,13 @@
 <script src="<c:url value='/'/>js/inspinia.js"></script>
 <script src="<c:url value='/'/>js/plugins/pace/pace.min.js"></script>
 
-<!-- initialize jQuery Library -->
-<script src="<c:url value='/'/>plugins/jQuery/jquery.min.js"></script>
-<!-- Bootstrap jQuery -->
-<script src="<c:url value='/'/>plugins/bootstrap/bootstrap.min.js" defer></script>
-<!-- Slick Carousel -->
-<script src="<c:url value='/'/>plugins/slick/slick.min.js"></script>
-<script src="<c:url value='/'/>plugins/slick/slick-animation.min.js"></script>
-<!-- Color box -->
-<script src="<c:url value='/'/>plugins/colorbox/jquery.colorbox.js"></script>
-<!-- shuffle -->
-<script src="<c:url value='/'/>plugins/shuffle/shuffle.min.js" defer></script>
 
 <!-- Sweet alert -->
 <script src="<c:url value='/'/>js/plugins/sweetalert/sweetalert.min.js"></script>
 
-<!-- Google Map API Key-->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
-<!-- Google Map Plugin-->
-<script src="<c:url value='/'/>google-map/map.js" defer></script>
-
+<%--
 <!-- Template custom -->
-<script src="<c:url value='/'/>js/script.js"></script>
+<script src="<c:url value='/'/>js/script.js"></script>--%>
 <!--/ Header end -->
 
 <%--
@@ -635,6 +670,6 @@
 <script src="<c:url value='/'/>js/script.js"></script>
 --%>
 
-
+</div>
 </body>
 </html>

@@ -38,12 +38,12 @@
     <link href="<c:url value='/'/>css/style2.css" rel="stylesheet">
     <link href="<c:url value='/'/>css/style.css" rel="stylesheet" type="text/css" >--%>
     <link href="<c:url value='/'/>css/bootstrap.min.css" rel="stylesheet">
-    <link href="<c:url value='/'/>plugins/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/animate-css/animate.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/slick/slick.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/slick/slick-theme.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css" >
+    <link href="<c:url value='/'/>constra/plugins/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="<c:url value='/'/>constra/plugins/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" >
+    <link href="<c:url value='/'/>constra/plugins/animate-css/animate.css" rel="stylesheet" type="text/css" >
+    <link href="<c:url value='/'/>constra/plugins/slick/slick.css" rel="stylesheet" type="text/css" >
+    <link href="<c:url value='/'/>constra/plugins/slick/slick-theme.css" rel="stylesheet" type="text/css" >
+    <link href="<c:url value='/'/>constra/plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css" >
 
 
 
@@ -71,9 +71,9 @@
 
 </head>
 <body>
-
+<div class="body-inner">
 <%@include file="/WEB-INF/jsp/main/header.jsp" %>
-<section id="main-container" class="main-container">
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -212,9 +212,9 @@
             </div>
         </div>
     </div>
-</section>
 
-<%@include file="/WEB-INF/jsp/main/footer.jsp" %>
+
+
 
 <!-- Mainly scripts -->
 <script src="<c:url value='/'/>js/jquery-2.1.1.js"></script>
@@ -257,7 +257,7 @@
     }
 
 </script>
-
-
+</div>
+<%@include file="/WEB-INF/jsp/main/footer.jsp" %>
 </body>
 </html>

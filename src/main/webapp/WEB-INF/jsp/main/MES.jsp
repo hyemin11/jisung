@@ -66,6 +66,7 @@
     <link href="<c:url value='/'/>css/style.css" rel="stylesheet" type="text/css" >--%>
 </head>
 <body>
+<div class="body-inner">
 <%@include file="/WEB-INF/jsp/main/header.jsp" %>
 <section class="banner">
     <div class="container">
@@ -378,7 +379,7 @@
 
     </div>
 
-    </div>
+
 </section>
 
 
@@ -386,8 +387,41 @@
 
 
 <%@include file="/WEB-INF/jsp/main/footer.jsp" %>
+</div>
+
+<!-- initialize jQuery Library -->
+<script src="<c:url value='/'/>constra/plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap jQuery -->
+<script src="<c:url value='/'/>constra/plugins/bootstrap/bootstrap.min.js" defer></script>
+<!-- Slick Carousel -->
+<script src="<c:url value='/'/>constra/plugins/slick/slick.min.js"></script>
+<script src="<c:url value='/'/>constra/plugins/slick/slick-animation.min.js"></script>
+<!-- Color box -->
+<script src="<c:url value='/'/>constra/plugins/colorbox/jquery.colorbox.js"></script>
+<!-- shuffle -->
+<script src="<c:url value='/'/>constra/plugins/shuffle/shuffle.min.js" defer></script>
+
+<!-- Template custom -->
+<script src="<c:url value='/'/>constra/js/script.js"></script>
+
+
+<%--
 
 <!-- Mainly scripts -->
+<script src="<c:url value='/'/>js/jquery-2.1.1.js"></script>
+<script src="<c:url value='/'/>js/bootstrap.min.js"></script>
+<script src="<c:url value='/'/>js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="<c:url value='/'/>js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<script src="<c:url value='/'/>js/plugins/dataTables/datatables.min.js"></script>
+<!-- Custom and plugin javascript -->
+<script src="<c:url value='/'/>js/inspinia.js"></script>
+<script src="<c:url value='/'/>js/plugins/pace/pace.min.js"></script>
+
+
+<!-- Sweet alert -->
+<script src="<c:url value='/'/>js/plugins/sweetalert/sweetalert.min.js"></script>--%>
+<%--<!-- Mainly scripts -->
 <script src="<c:url value='/'/>js/jquery-2.1.1.js"></script>
 <script src="<c:url value='/'/>js/bootstrap.min.js"></script>
 <script src="<c:url value='/'/>js/plugins/metisMenu/jquery.metisMenu.js"></script>
@@ -411,7 +445,7 @@
 <script src="<c:url value='/'/>js/demo/peity-demo.js"></script>
 <script src="<c:url value='/'/>js/vendors.bundle.js"></script>
 <!-- Toastr script -->
-<script src="<c:url value='/'/>js/plugins/toastr/toastr.min.js"></script>
-
+<script src="<c:url value='/'/>js/plugins/toastr/toastr.min.js"></script>--%>
+</div>
 </body>
 </html>

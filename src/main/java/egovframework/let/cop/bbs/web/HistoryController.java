@@ -25,6 +25,7 @@ import org.springmodules.validation.commons.DefaultBeanValidator;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -190,6 +191,47 @@ public class HistoryController {
         return "main/History";
     }
 
+
+    /**
+     * 협력업체 상세정보를 조회한다.
+     * @param boardVO
+     * @param model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/cop/bbs/historyDetail.do")
+    public String selectHistoryArticle(@ModelAttribute("resultList") BoardVO boardVO, ModelMap model) throws Exception {
+
+        // 조회수 증가 여부 지정
+        boardVO.setPlusCount(true);
+        //---------------------------------
+        // 2009.06.29 : 2단계 기능 추가
+        //---------------------------------
+        if (!boardVO.getSubPageIndex().equals("")) {
+            boardVO.setPlusCount(false);
+        }
+        ////-------------------------------
+        Map<String, Object> resultMap = new HashMap<String, Object>();
+        BoardVO vo = bbsMngService.selectBoardArticle(boardVO);
+        resultMap.put("boardVO", vo);
+        model.addAttribute("historyResult", vo);
+        model.addAttribute("articleVO", vo);
+        //----------------------------
+        // template 처리 (기본 BBS template 지정  포함)
+        //----------------------------
+        BoardMasterVO master = new BoardMasterVO();
+
+        master.setBbsId(boardVO.getBbsId());
+
+        BoardMasterVO masterVo = bbsAttrbService.selectBBSMasterInf(master);
+
+        model.addAttribute("brdMstrVO", masterVo);
+
+
+
+
+        return "main/HistoryDetail";
+    }
     /**
      * 삭제한다.
      */
