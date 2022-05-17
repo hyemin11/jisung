@@ -27,11 +27,11 @@
 
 
 </head>
-<body>
+<body >
 
-<div class="body-inner">
-    <div class="min-vh-100">
-    <%@include file="/WEB-INF/jsp/main/header.jsp" %>
+<div class="body-inner"><%@include file="/WEB-INF/jsp/main/header.jsp" %>
+    <div class="container" style="min-height: calc(100vh - 255px);">
+
     <div id="container" class="main-container " >
         <div class="container">
             <div class=" justify-content-center text-center ">
@@ -67,7 +67,7 @@
 
                 </div>
             </div>
-            <div class="row" style="padding-bottom: 200px">
+            <div class="row" >
                 <div class="col-lg-6">
                     <div class="ibox-title">
                         <h4>APS</h4>
@@ -86,8 +86,8 @@
 
         </div>
     </div>
-    <%@include file="/WEB-INF/jsp/main/footer.jsp" %>
-</div>
+
+</div><%@include file="/WEB-INF/jsp/main/footer.jsp" %>
 </div>
 
 

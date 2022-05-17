@@ -60,27 +60,6 @@
             padding: 30px;
         }
 
-        .call-to-action-title {
-            color: #fff;
-            margin: 0;
-            padding: 25px 0;
-            line-height: normal;
-            font-size: 22px;
-            text-transform: capitalize;
-        }
-
-
-        /* Action style box */
-
-        .call-to-action-box {
-            margin-top: -50px;
-        }
-
-        .call-to-action-box .action-style-box {
-            background: $color-primary;
-            padding: 30px;
-        }
-
         .action-title {
             color: #fff;
             margin: 0;
@@ -91,93 +70,7 @@
     </style>
 </head>
 <body><%@include file="/WEB-INF/jsp/main/header.jsp" %>
-<%--
-<%@include file="/WEB-INF/jsp/main/header.jsp" %>--%>
 <div class="body-inner">
-
-<%--    <!--/ Header end -->&ndash;%&gt;
-       <header id="header" class="header-two">
-           <div class="site-navigation navbar-fixed">
-               <div class="container">
-                   <div class="row">
-                       <div class="col-lg-12">
-                           <nav class="navbar navbar-expand-lg navbar-light p-0">
-
-                               <div class="logo">
-                                   <a class="d-block" href="<c:url value='/'/>index.jsp">
-                                       <img loading="lazy" src="<c:url value='/'/>images/com_logo.png" alt="Jisung">
-                                       &lt;%&ndash;<h3>Jisung Soft</h3>&ndash;%&gt;
-                                   </a>
-                               </div><!-- logo end -->
-
-                               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                                   <span class="navbar-toggler-icon"></span>
-                               </button>
-
-                               <div id="navbar-collapse" class="collapse navbar-collapse">
-                                   <ul class="nav navbar-nav ml-auto align-items-center">
-                                       <li class="nav-item dropdown">
-                                           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">회사소개<i class="fa fa-angle-down"></i></a>
-                                           <ul class="dropdown-menu" role="menu">
-                                               <li><a href="<c:url value='/cop/bbs/introduce.do' />">회사소개</a></li>
-                                               <li><a href="<c:url value='/cop/bbs/organization.do' />">조직도</a></li>
-                                               <li><a href="<c:url value='/cop/bbs/system.do' />">기업비즈니스</a></li>
-                                           </ul>
-                                       </li>
-
-                                       <li class="nav-item dropdown">
-                                           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">스마트공장<i class="fa fa-angle-down"></i></a>
-                                           <ul class="dropdown-menu" role="menu">
-                                               <li><a href="<c:url value='/cop/bbs/smartFactory.do' />">스마트공장이란</a></li>
-                                               <li><a href="<c:url value='/cop/bbs/government.do' />" >정부지원사업</a></li>
-                                           </ul>
-                                       </li>
-
-                                       <li class="nav-item dropdown">
-                                           <a href="<c:url value='/cop/bbs/history.do' />" class="nav-link dropdown-toggle" data-toggle="dropdown">구축사례</a>
-                                           <ul class="dropdown-menu" role="menu">
-                                               <li><a href="<c:url value='/cop/bbs/history.do' />">구축사례</a></li>
-                                           </ul>
-                                       </li>
-
-                                       <li class="nav-item dropdown">
-                                           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">솔루션<i class="fa fa-angle-down"></i></a>
-                                           <ul class="dropdown-menu" role="menu">
-                                               <li><a href="<c:url value='/cop/bbs/mes.do' />">MES</a></li>
-                                               <li><a href="<c:url value='/cop/bbs/smartFarm.do' />">스마트팜</a></li>
-                                           </ul>
-                                       </li>
-
-                                       <li class="nav-item dropdown">
-                                           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">고객지원<i class="fa fa-angle-down"></i></a>
-                                           <ul class="dropdown-menu" role="menu">
-                                               <li><a href="<c:url value='/cop/bbs/googleMaps.do' />">오시는길</a></li>
-                                               <li><a href="<c:url value='/cop/bbs/notice.do'/>">공지사항</a></li>
-
-                                               <%
-                                                   LoginVO loginVO = (LoginVO)session.getAttribute("LoginVO");
-                                                   if(loginVO != null){
-                                               %>
-                                               <li><a href="<c:url value='/cop/bbs/contactList.do' />">관리자</a></li>
-                                               <% } %>
-                                           </ul>
-                                       </li>
-                                       <li class="header-get-a-quote">
-                                           <a class="btn btn-primary" href="<c:url value='/cop/bbs/contactWrite.do' />" >온라인문의</a>
-                                       </li>
-                                   </ul>
-                               </div>
-                           </nav>
-                       </div>
-                       <!--/ Col end -->
-                   </div>
-                   <!--/ Row end -->
-               </div>
-               <!--/ Container end -->
-
-           </div>
-           <!--/ Navigation end -->
-       </header>--%>
     <div class="main-container min-mh-100">
         <div class="banner-carousel banner-carousel-2 mb-0">
             <div class="banner-carousel-item" style="background-image:url(<c:url value='/'/>images/slider-main/bg4.jpg)">
@@ -190,7 +83,6 @@
                                 특히, 현업 실무 경험을 바탕으로 산업구별 특화된 기능 및 컨설팅 서비스를 제공하고 있습니다. </p>
                             <p>
                                 <a href="<c:url value='/cop/bbs/introduce.do' />" class="slider btn btn-primary">회사소개</a>
-                                <%--<a href="services.html" class="slider btn btn-primary">회사소개</a>--%>
                             </p>
                         </div>
                     </div>
@@ -363,56 +255,11 @@
         </section><!-- Project area end -->
 
     </div>
-    <div class="col-md-12" style="height: 100px" >
 
-    </div>
     <%@include file="/WEB-INF/jsp/main/footer.jsp" %>
 
 </div>
-
-
-   <%-- <footer id="footer" class="footer bg-overlay">
-        <div class="copyright">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-12">
-                        <div class="copyright-info text-center">
-              <span>Copyright &copy; <script>
-                  document.write(new Date().getFullYear())
-                </script>, Designed &amp; Developed by <a href="<c:url value='/'/>https://themefisher.com">Themefisher</a></span>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12">
-                        <div class="copyright-info text-center">
-                            <span>Distributed by <a href="<c:url value='/'/>https://themewagon.com/">Themewagon</a></span>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12">
-                        <div class="footer-menu text-center">
-                            <ul class="list-unstyled mb-0">
-                                <li><a href="<c:url value='/'/>about.html">About</a></li>
-                                <li><a href="<c:url value='/'/>team.html">Our people</a></li>
-                                <li><a href="<c:url value='/'/>faq.html">Faq</a></li>
-                                <li><a href="<c:url value='/'/>news-left-sidebar.html">Blog</a></li>
-                                <li><a href="<c:url value='/'/>pricing.html">Pricing</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div><!-- Row end -->
-
-                <div id="back-to-top" data-spy="affix" data-offset-top="10" class="back-to-top position-fixed">
-                    <button class="btn btn-primary" title="Back to Top">
-                        <i class="fa fa-angle-double-up"></i>
-                    </button>
-                </div>
-
-            </div><!-- Container end -->
-        </div><!-- Copyright end -->
-    </footer><!-- Footer end -->--%>
-
-    <!-- initialize jQuery Library -->
+ <!-- initialize jQuery Library -->
     <script src="<c:url value='/'/>constra/plugins/jQuery/jquery.min.js"></script>
     <!-- Bootstrap jQuery -->
     <script src="<c:url value='/'/>constra/plugins/bootstrap/bootstrap.min.js" defer></script>

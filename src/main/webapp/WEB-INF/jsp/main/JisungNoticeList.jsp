@@ -23,20 +23,6 @@
     <meta name="description" content="Construction Html5 Template">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
-
-<%--
-    <link href="<c:url value='/'/>plugins/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/animate-css/animate.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/slick/slick.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/slick/slick-theme.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css" >
-
-
-
-    <link href="<c:url value='/'/>css/animate.css" rel="stylesheet">
-    <link href="<c:url value='/'/>css/style2.css" rel="stylesheet">
-    <link href="<c:url value='/'/>css/style.css" rel="stylesheet" type="text/css" >--%>
     <link href="<c:url value='/'/>css/bootstrap.min.css" rel="stylesheet">
     <link href="<c:url value='/'/>constra/plugins/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" >
     <link href="<c:url value='/'/>constra/plugins/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" >
@@ -52,7 +38,6 @@
     <link href="<c:url value='/'/>css/style2.css" rel="stylesheet">
     <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet" type="text/css" >
 
-    <%--<link href="<c:url value='/'/>bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">--%>
     <style>
         .pagination > li > strong , .pagination > li > span {
            /* background-color: #FFFFFF;*/
@@ -67,6 +52,17 @@
             position: relative;
             text-decoration: none;
         }
+
+
+         html,body{
+             height: 100%;
+         }
+        .body-inner{
+            position: relative;
+            min-height: 100%;
+            padding-top: 0px;
+        }
+
     </style>
 
 </head>
@@ -75,21 +71,12 @@
 <%@include file="/WEB-INF/jsp/main/header.jsp" %>
 
     <div class="container">
-        <div class="row">
+        <div class="row" style="min-height: calc(100vh - 255px);">
             <div class="col-md-12">
                 <div class="wrapper wrapper-content animated fadeInRight">
-                       <%-- <div class="ibox-content">--%>
+
                            <div class="row" style="height: content-box">
                                <div class="col-md-5 pull-left ">
-
-                                      <%-- <%
-                                           if(loginVO != null){
-                                       %>
-                                       <a href="<c:url value='/'/>cop/bbs/noticeWrite.do">
-                                           <button type="button" class="btn btn-outline btn-default" href="<c:url value='/'/>cop/bbs/noticeWrite.do">write</button></a>
-
-                                       <% } %>
---%>
                                </div>
                                <div class="col-md-6 pull-right ">
                                    <form name="frm" action ="<c:url value='/cop/bbs/history.do'/>" method="post" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -156,8 +143,6 @@
                             <table class="table">
                                 <tr>
                                     <td colspan="5" class="footable-visible" >
-                                       <%-- <ul class="pagination pull left">--%>
-
                                             <div class="pull-left">
                                                 <%
                                                     if(loginVO != null){
@@ -167,51 +152,18 @@
 
                                                 <% } %>
                                             </div>
-
-                                        <%--</ul>--%>
                                         <ul class="pagination pull-right">
-<%--
-                                            <li class="footable-page-arrow disabled">
-                                                <a data-page="first" href="#first">«</a>
-                                            </li>
-                                            <li class="footable-page-arrow disabled">
-                                                <a data-page="prev" href="#prev">‹</a>
-                                            </li>
-                                            <li class="footable-page active">
-                                                <a data-page="0" href="#">1</a>
-                                            </li>
---%>
                                             <li class="footable-page">
-                                               <%-- <a data-page="1" href="#">2</a>--%>
                                                    <ui:pagination paginationInfo="${paginationInfo}" type="image" jsFunction="fn_egov_select_noticeList" />
                                             </li>
-<%--
-                                            <li class="footable-page-arrow">
-                                                <a data-page="next" href="#next">›</a>
-                                            </li>
-                                            <li class="footable-page-arrow">
-                                                <a data-page="last" href="#last">»</a>
-                                            </li>
-
---%>
-
                                         </ul>
                                     </td>
                                 </tr>
                             </table>
-                            <%--<%
-                                if(loginVO != null){
-                            %>
-                            <div class="text-center"><br><a href="<c:url value='/'/>cop/bbs/noticeWrite.do">
-                                <button type="button" class="pagination pull-left btn btn-default btn-sm" href="<c:url value='/'/>cop/bbs/noticeWrite.do">write</button></a>
-                            </div>
-                            <% } %>--%>
-
-                        <%--</div>--%>
                 </div>
             </div>
         </div>
-    </div>
+    </div><%@include file="/WEB-INF/jsp/main/footer.jsp" %>
 
 
 
@@ -258,6 +210,6 @@
 
 </script>
 </div>
-<%@include file="/WEB-INF/jsp/main/footer.jsp" %>
+
 </body>
 </html>

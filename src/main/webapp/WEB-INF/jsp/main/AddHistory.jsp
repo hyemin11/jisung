@@ -39,7 +39,7 @@
 </head>
 <body>
 <%@include file="/WEB-INF/jsp/main/header.jsp" %>
-<section id="main-container" class="main-container">
+<section id="main-container " class="main-container" style="min-height: 75.8%">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -47,7 +47,6 @@
 
                 <%--@elvariable id="board" type="egovframework.let.cop.bbs.service.BoardVO"--%>
                 <form:form modelAttribute="board" name="board" method="post" enctype="multipart/form-data"  >
-                <%--<form action="<c:url value='/'/>cop/bbs/historyRegist.do" method="post" name="boardForm">--%>
                     <input type="hidden" name="bbsId" value="BBSMSTR_DDDDDDDDDDDD" />
                     <input type="hidden" name="bbsAttrbCode" value="<c:out value='${bdMstr.bbsAttrbCode}'/>" />
                     <input type="hidden" name="bbsTyCode" value="BBST03" />
@@ -68,32 +67,14 @@
                             <div class="form-group">
                                 <label>회사명</label>
                                 <form:input path="nttSj" cssClass="form-control form-control-text" />
-                                <%--<input name="nttSj" value="${nttSj}" type="text" class="form-control form-control-text">--%>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>홈페이지</label>
                                 <form:input path="homepage" cssClass="form-control form-control-text" />
-                                <%--<input name="homepage" value="${homepage}" type="text" class="form-control form-control-text">--%>
                             </div>
                         </div>
-
-                            <%--<label>이미지</label>
-                            <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                                <div class="form-control" data-trigger="fileinput">
-                                    <i class="glyphicon glyphicon-file fileinput-exists"></i>
-                                    <span class="fileinput-filename"></span>
-                                </div>
-                                <span class = "input-group-addon btn btn-default btn-file" >
-                                    <span class="fileinput-new">Select file</span>
-                                    <span class="fileinput-exists">Change</span>
-                                    &lt;%&ndash;<form:input path="atchFileId" id="egovComFileUploader" type="file" name="file_1"/>&ndash;%&gt;
-                                    <input type="file" name="..." id="egovComFileUploader" name="file_1" />
-                                    <div id="egovComFileList"></div>
-                                </span>
-                                <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-                            </div>--%>
                                 <table class="col-md-4">
                                     <tr>
                                         <th height="23"><label for="egovComFileUploader"><spring:message code="cop.atchFile" /></label></th>
@@ -103,13 +84,10 @@
                                         </td>
                                     </tr>
                                 </table>
-
                     </div>
-
                     <div class="form-group">
                         <label>내용</label>
                         <form:textarea path="nttCn" cssClass="form-control form-control-message" rows="10" />
-                        <%--<textarea name="nttCn" value="${nttCn}" rows="10" class="form-control form-control-message" ></textarea>--%>
                     </div>
                     <div class="text-right"><br>
                         <button class="btn btn-primary solid blank" type="button" name="submitHis" id="submitHis" data-target="add"
@@ -139,12 +117,6 @@
     async function insertHistory() {
 
         var data = $("#submitHis").data('target');
-        /*
-                if (data=='add'){
-                    document.board.action = "<c:url value='/cop/bbs/historyRegist.do' />";
-                    document.board.submit();
-                }
-        */
 
         if (document.board.nttSj.value == "") {
             swal({

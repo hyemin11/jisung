@@ -14,13 +14,7 @@
 &ndash;%&gt;--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<%--<head>
-    <title>Title</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Construction Html5 Template">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
-</head>--%>
 <!-- Header start -->
 
 
@@ -95,19 +89,8 @@
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a href="<c:url value='/cop/bbs/googleMaps.do' />">오시는길</a></li>
                                             <li><a href="<c:url value='/cop/bbs/notice.do'/>">공지사항</a></li>
-
-                                            <%--<%
-                                                LoginVO loginVO = (LoginVO)session.getAttribute("LoginVO");
-                                                if(loginVO != null){
-                                            %>
-                                            <li><a href="<c:url value='/cop/bbs/contactList.do' />">관리자</a></li>
-                                          <% } %>--%>
                                         </ul>
                                     </li>
-
-
-
-
                                 </ul>
                                 <ul class="nav">
                                     <li class="header-get-a-quote" >
@@ -128,21 +111,11 @@
                     <!--/ Col end -->
                 </div>
                 <!--/ Row end -->
-
             </div>
             <!-- Container end -->
-
         </div>
         <!-- Navigation end -->
-
-
     </header>
-
-
-
-
-
-
 </html>
 
 

@@ -64,10 +64,10 @@
 
 </head>
 
-<body>
+<body style="min-height: 75.8%">
 <%@include file="/WEB-INF/jsp/main/header.jsp" %>
 
-<section id="main-container" class="main-container">
+<section id="main-container " class="main-container" style="min-height: calc(100vh - 255px);">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -82,19 +82,7 @@
                     <input type="hidden" name="contactContents" value="<c:out value='${contactDetail.contactContents}'/>">
                     <div class="mail-box-header">
                         <div class="pull-right tooltip-demo">
-<%--
-
-                            <a href="#" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Print email"><i class="fa fa-print"></i> </a>
---%>
-
-<%--
-                            <a href="mail_compose.html" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Reply"><i class="fa fa-edit"></i> Edit</a>
---%>
                             <button class="btn btn-white btn-sm demo3" id="demo3" name="demo3" type="button" onclick="javascript:fn_delete_contact(<c:out value='${contactDetail.contactUniqId}'/>);" data-toggle="tooltip" data-placement="top" title="Move to trash"><i class="fa fa-trash-o demo3">Remove</i></button>
-
-<%--
-                            <a href="<c:url value='/'/>cop/bbs/contactDelete.do" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Move to trash"><i class="fa fa-trash-o"></i> </a>
---%>
                         </div>
                         <h5>
                             온라인문의
@@ -117,9 +105,6 @@
                         </div>
                         <div class="mail-body text-right tooltip-demo">
                             <a class="btn btn-sm btn-white" href="javascript:history.back();"><i class="fa fa-reply"></i> Back to List</a>
-                                <%--
-                            <a class="btn btn-sm btn-white" href="mail_compose.html"><i class="fa fa-arrow-right"></i> Forward</a>
-                            <button title="" data-placement="top" data-toggle="tooltip" type="button" data-original-title="Print" class="btn btn-sm btn-white "><i class="fa fa-print"></i> Print</button>--%>
                             <button title="" data-placement="top" type="button" data-toggle="tooltip" data-original-title="Trash" class="btn btn-sm btn-white demo3" onclick="javascript:fn_delete_contact(<c:out value='${contactDetail.contactUniqId}'/>);"><i class="fa fa-trash-o"></i> Remove</button>
                         </div>
                         <div class="clearfix"></div>
@@ -129,8 +114,8 @@
         </div>
     </div>
 </section>
-
 <%@include file="/WEB-INF/jsp/main/footer.jsp" %>
+
 <script>
 
 
@@ -158,8 +143,6 @@
 </script>
 <script src="<c:url value='/'/>summernote-0.8.18-dist/summernote.js"></script>
 <script src="<c:url value='/'/>summernote-0.8.18-dist/lang/summernote-ko-KR.js"></script>
-
-<%--<link rel="stylesheet" href="<c:url value='/'/>summernote-0.8.18-dist/summernote.css">--%>
 
 <!-- Mainly scripts -->
 <script src="<c:url value='/'/>js/jquery-2.1.1.js"></script>

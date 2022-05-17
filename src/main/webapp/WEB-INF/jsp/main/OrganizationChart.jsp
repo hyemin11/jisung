@@ -19,12 +19,13 @@
     <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet" type="text/css" >
 
 </head>
-<body>
+<body style="min-height: calc(100vh - 255px);">
 
-<%@include file="/WEB-INF/jsp/main/header.jsp" %>
-<div class="body-inner">
-    <div id="main-container" class="main-container">
-        <div class="container">
+<div class="body-inner" >
+
+    <%@include file="/WEB-INF/jsp/main/header.jsp" %>
+    <div id="main-container" class="main-container" style="min-height: 75.8%">
+        <div class="container" >
             <div class=" justify-content-center text-center ">
                 <div class="text-center article-title">
                     <h1>
@@ -45,38 +46,11 @@
         </div>
     </div>
 </div>
+
 <%@include file="/WEB-INF/jsp/main/footer.jsp" %>
 
 
 
-
-
-<%--
-<div class="row">
-    <div class="col-lg-12 text-center">
-        <div class="ibox-title">
-            <div class="row justify-content-center text-center">
-                <div class="text-center article-title">
-                    <h1>
-                        조직도
-                    </h1>
-                </div>
-                <img src="<c:url value='/'/>images/organization.png">
-            </div>
-            <div class="content text-center">
-
-                <br>
-                <br>
-                <br>
-                <br>
-            </div>
-        </div>
-    </div>
-</div>
---%>
-<%--
-
-<%@include file="/WEB-INF/jsp/main/footer.jsp" %>--%>
 <!-- Mainly scripts -->
 <script src="<c:url value='/'/>js/jquery-2.1.1.js"></script>
 <script src="<c:url value='/'/>js/bootstrap.min.js"></script>

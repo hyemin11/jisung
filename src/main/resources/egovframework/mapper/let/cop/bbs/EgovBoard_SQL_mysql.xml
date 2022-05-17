@@ -166,7 +166,7 @@
 					a.NTT_CN LIKE CONCAT ('%', #{searchWrd},'%') 		
 			</if>	
 			<if test="searchCnd == 2">AND
-					b.USER_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+					a.NTCR_NM LIKE CONCAT ('%', #{searchWrd},'%')
 			</if>				
 					
 			ORDER BY a.SORT_ORDR DESC, NTT_NO ASC

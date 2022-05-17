@@ -61,12 +61,12 @@
     <link href="<c:url value='/'/>css/style.css" rel="stylesheet" >
     <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet">
 
-</head>
-<body>
+</head><%@include file="/WEB-INF/jsp/main/header.jsp" %>
+<body  >
 
-<div class="body-inner ">
-    <div class=" min-vh-100">
-        <%@include file="/WEB-INF/jsp/main/header.jsp" %>
+<div class="body-inner">
+    <div style="min-height: calc(100vh - 255px);">
+
         <div class="container">
             <div class="col-md-12 ">
                 <div class="col-md-12 ">
@@ -115,8 +115,6 @@
                                 <c:if test="${historyResult.atchFileId eq ''}">
                                     <img src="<c:url value='/'/>images/defaultimage.png" style="object-fit: cover;width: 247px; padding-bottom: 40px; padding-top: 40px"  />
                                 </c:if>
-                                <%--<a class="gallery-popup cboxElement" url="<c:url value='/'/>cmm/fms/selectImageFileInfs.do" >
-                                    <span class="gallery-icon"><i class="fa fa-plus"></i></span>--%>
                                 <c:import url="/cmm/fms/selectImageFileInfs.do" charEncoding="utf-8" >
                                     <c:param name="atchFileId" value="${historyResult.atchFileId}" />
                                 </c:import>
@@ -149,24 +147,16 @@
                         </form>
 
                     </div>
-
                     <div class="col-md-12" style="padding-bottom:10em" >
-
                     </div>
                 </div>
-
-
             </div>
-
         </div>
-
-        <%@include file="/WEB-INF/jsp/main/footer.jsp" %>
-
 
     </div>
 </div>
 
-
+<%@include file="/WEB-INF/jsp/main/footer.jsp" %>
 
 <script>
 

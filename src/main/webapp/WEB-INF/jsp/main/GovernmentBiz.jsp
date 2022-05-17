@@ -14,24 +14,6 @@
     <meta name="description" content="Construction Html5 Template">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
-<%--    <link href="<c:url value='/'/>plugins/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/animate-css/animate.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/slick/slick.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/slick/slick-theme.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css" >
-
-    <link href="<c:url value='/'/>css/bootstrap.min.css" rel="stylesheet">
-    <link href="<c:url value='/'/>font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link href="<c:url value='/'/>css/plugins/summernote/summernote.css" rel="stylesheet">
-    <link href="<c:url value='/'/>css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
-
-    <link href="<c:url value='/'/>css/animate.css" rel="stylesheet">
-
-    <link href="<c:url value='/'/>css/style.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>contstra/css/style2.css" rel="stylesheet">--%>
-
-
     <link href="<c:url value='/'/>plugins/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" >
     <link href="<c:url value='/'/>plugins/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" >
     <link href="<c:url value='/'/>plugins/animate-css/animate.css" rel="stylesheet" type="text/css" >

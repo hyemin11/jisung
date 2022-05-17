@@ -25,10 +25,21 @@
     <link href="<c:url value='/'/>css/style2.css" rel="stylesheet">
     <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet" type="text/css" >
 
+    <style>
+        html,body{
+            height: 100%;
+        }
+        .row3{
+            position: relative;
+            min-height: 100%;
+            padding-top: 0px;
+        }
+    </style>
 </head>
-<body>
+
+<body >
 <%@include file="/WEB-INF/jsp/main/header.jsp" %>
-<div class="row">
+<div class="row3" style="min-height: calc(100vh - 255px);">
     <div class="col-lg-12 text-center">
         <div class="ibox-title">
             <br>
@@ -44,8 +55,8 @@
     </div>
 </div>
 
-
 <%@include file="/WEB-INF/jsp/main/footer.jsp" %>
+
 <!-- Mainly scripts -->
 <script src="<c:url value='/'/>js/jquery-2.1.1.js"></script>
 <script src="<c:url value='/'/>js/bootstrap.min.js"></script>

@@ -38,24 +38,6 @@
     <link href="<c:url value='/'/>css/style2.css" rel="stylesheet">
     <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet" type="text/css" >
 
-<%--
-    <link href="<c:url value='/'/>plugins/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/animate-css/animate.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/slick/slick.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/slick/slick-theme.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>css/plugins/dataTables/datatables.min.css" rel="stylesheet">
-    <link href="<c:url value='/'/>css/bootstrap.min.css" rel="stylesheet">
-    <link href="<c:url value='/'/>font-awesome/css/font-awesome.css" rel="stylesheet">
-
-
-    <link href="<c:url value='/'/>css/animate.css" rel="stylesheet">
-    <link href="<c:url value='/'/>css/style2.css" rel="stylesheet">
-    <link href="<c:url value='/'/>css/style.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet" type="text/css" >
---%>
-
     <style>
         .pagination > li > strong , .pagination > li > span {
             /* background-color: #FFFFFF;*/
@@ -88,9 +70,8 @@
 
 </head>
 <body>
-
 <%@include file="/WEB-INF/jsp/main/header.jsp" %>
-<section id="main-container" class="main-container">
+<section id="main-container" class="main-container" style="min-height: calc(100vh - 255px);">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -103,9 +84,7 @@
                                 <input type="hidden" name="contactUniqId"  value="0" />
                                 <input name="pageIndex" type="hidden" value="<c:out value='${searchVO.pageIndex}'/>"/>
                                 <input type="submit" value="실행" onclick="fn_egov_select_contactList('1'); return false;" id="invisible" class="invisible" />
-
                                 <fieldset>
-
                                     <button type="button" class="btn btn-outline-success pull-right" style="margin: 13px 0 0 13px;" onclick="javascript:fn_egov_select_contactList('1'); return false;" >검색</button>
                                     <input type="text" name="searchWrd" value='<c:out value="${searchVO.searchWrd}"/>' class="form-control col-md-4 pull-right" style="margin: 0px;">
                                     <select name="searchCnd" class="select pull-right" title="검색조건 선택" style="margin: 13px 13px 0 0;">
@@ -115,9 +94,7 @@
                                     </select>
                                 </fieldset>
                             </form>
-
                         </div>
-
                     </div>
                         <table class="table table-hover">
                             <thead>
@@ -128,16 +105,8 @@
                                 <th class="text-center">작성일</th>
                             </tr>
                             </thead>
-
                             <tbody>
-
                             <c:forEach varStatus="status" var="result" items="${resultList}" >
-<%--
-                                <input name="pageIndex" type="hidden" value="<c:out value='${searchVO.pageIndex}' />" />
-                                <input name="contactIndexNumber" type="hidden" value="<c:out value='${result.contactIndexNumber}' />" />
-                                <input type="submit" value="실행" onclick="fn_egov_select_contactList('1'); return false;" id="invisible" class="invisible" />
---%>
-
                                 <tr>
                                     <td>
                                     <c:out value="${(paginationInfo.totalRecordCount+1) - ((searchVO.pageIndex-1) * searchVO.pageSize + status.count)}"/>
@@ -160,41 +129,16 @@
                                         <c:out value="${result.contactDate}" />
                                     </td>
                                 </tr>
-
                             </c:forEach>
-
                             </tbody>
                         </table>
                         <table class="table">
                             <tr>
                                 <td colspan="5" class="footable-visible" >
                                     <ul class="pagination pull-right">
-<%--
-                                        <li class="footable-page-arrow disabled">
-                                            <a data-page="first" href="#first">«</a>
-                                        </li>
-                                        <li class="footable-page-arrow disabled">
-                                            <a data-page="prev" href="#prev">‹</a>
-                                        </li>
---%>
-<%--
-                                        <li class="footable-page active">
-                                            <a data-page="0" href="#">1</a>
-                                        </li>
---%>
-                                        <li class="footable-page" active><%--
-                                            <a data-page="0" onclick="fn_egov_select_contactList()">--%>
+                                        <li class="footable-page" active>
                                                 <ui:pagination paginationInfo="${paginationInfo}" type="image" jsFunction="fn_egov_select_contactList" />
-                                          <%-- </a>--%>
                                         </li>
-<%--
-                                        <li class="footable-page-arrow">
-                                            <a data-page="next" href="#next">›</a>
-                                        </li>
-                                        <li class="footable-page-arrow">
-                                            <a data-page="last" href="#last">»</a>
-                                        </li>
---%>
                                     </ul>
                                 </td>
                             </tr>

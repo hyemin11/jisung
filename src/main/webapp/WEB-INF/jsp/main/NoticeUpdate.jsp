@@ -54,7 +54,7 @@
 <%@include file="/WEB-INF/jsp/main/header.jsp" %>
 
 
-<section id="main-container" class="main-container">
+<section id="main-container" class="main-container" style="min-height: calc(100vh - 255px);">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -66,7 +66,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>제목</label>
-                                <form:input path="nttSj" cssClass="form-control form-control-text" id="nttSj"></form:input>
+                                <form:input path="nttSj" cssClass="form-control form-control-text" id="nttSj" value="${result.nttSj}"></form:input>
                             </div>
                         </div>
                         <div class="col-md-8">
@@ -170,12 +170,7 @@
         focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
         lang: "ko-KR",					// 한글 설정
         placeholder: '내용을 입력하세요.',	//placeholder 설정
-        /*   callbacks : {
-               onImageUpload : function (files) {
-                   sendFile(files[0],this);
 
-               }
-           }*/
 
     });
     function fn_egov_check_file(flag) {

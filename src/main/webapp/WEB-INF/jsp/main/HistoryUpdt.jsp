@@ -47,11 +47,8 @@
 
                 <%--@elvariable id="board" type="egovframework.let.cop.bbs.service.BoardVO"--%>
                 <form:form modelAttribute="board" name="board" method="post" enctype="multipart/form-data"  >
-                    <%--<form action="<c:url value='/'/>cop/bbs/historyRegist.do" method="post" name="boardForm">--%>
-
                     <c:if test="${not empty result.atchFileId}">
                             <input type="hidden" name="returnUrl" value="/cop/bbs/forUpdateHistory.do"/>
-
                             <table>
                                 <tr>
                                     <th height="23"><spring:message code="cop.atchFileList" /></th>
@@ -69,14 +66,12 @@
                             <div class="form-group">
                                 <label>회사명</label>
                                 <form:input path="nttSj" cssClass="form-control form-control-text" value="${result.nttSj}" />
-                                    <%--<input name="nttSj" value="${nttSj}" type="text" class="form-control form-control-text">--%>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>홈페이지</label>
                                 <form:input path="homepage" cssClass="form-control form-control-text" value="${result.homepage}" />
-                                    <%--<input name="homepage" value="${homepage}" type="text" class="form-control form-control-text">--%>
                             </div>
                         </div>
                         <table class="col-md-4">
@@ -88,15 +83,11 @@
                                 </td>
                             </tr>
                         </table>
-
                     </div>
-
                     <div class="form-group">
                         <label>내용</label>
                         <textarea name="nttCn" rows="10" class="form-control form-control-message"><c:out value="${result.nttCn}" escapeXml="false" default="${result.nttCn}"/></textarea>                            <%--<textarea name="nttCn" value="${nttCn}" rows="10" class="form-control form-control-message" ></textarea>--%>
                     </div>
-
-
                     <input type="hidden" name="bbsId" value="<c:out value='${result.bbsId}'/>" />
                     <input type="hidden" name="nttId" value="<c:out value='${result.nttId}'/>" />
                     <input type="hidden" name="bbsAttrbCode" value="<c:out value='${bdMstr.bbsAttrbCode}'/>" />
@@ -107,35 +98,19 @@
                     <input type="hidden" name="posblAtchFileSize" value="<c:out value='${bdMstr.posblAtchFileSize}'/>" />
                     <input type="hidden" name="tmplatId" value="<c:out value='${bdMstr.tmplatId}'/>" />
                     <input type="hidden" name="ntcrNm" value="<c:out value='${result.ntcrNm}'/>" />
-                    
-
                     <div class="text-right"><br>
                         <button class="btn btn-primary solid blank" type="button" name="submitHis" id="submitHis" data-target="add"
                                 onclick="javascript:updateHistory();"> 수정완료</button>
                     </div>
-
                 </form:form>
-
-
             </div>
         </div>
     </div>
 </section>
-
-
 <%@include file="/WEB-INF/jsp/main/footer.jsp" %>
 
 <script type="text/javascript">
 
-
-/*
-    var maxFileNum = document.board.posblAtchFileNumber.value;
-    if(maxFileNum==null || maxFileNum==""){
-        maxFileNum = 3;
-    }
-    var multi_selector = new MultiSelector( document.getElementById( 'egovComFileList' ), maxFileNum );
-    multi_selector.addElement( document.getElementById( 'egovComFileUploader' ) );
-*/
     async function updateHistory() {
 
         var data = $("#submitHis").data('target');

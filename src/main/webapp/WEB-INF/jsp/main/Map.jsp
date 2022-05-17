@@ -41,14 +41,14 @@
 
     <link href="<c:url value='/'/>css/style.css" rel="stylesheet" >
     <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet">
+    <style>
+    </style>
 </head>
 
 
-<body>
-    <div class="body-inner">
-    <%@include file="/WEB-INF/jsp/main/header.jsp" %>
-
-        <div class="container">
+<body ><%@include file="/WEB-INF/jsp/main/header.jsp" %>
+    <section class="body-inner" style="min-height: calc(100vh - 255px);">
+        <div class="main-container ">
             <div class="row justify-content-center text-center">
                 <div class="text-center article-title" style="margin-bottom: 30px">
                     <h1>
@@ -57,13 +57,12 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="main-container">
 
-            <div class="col-md-6">
-                <%--<div id="map" style="width:500px;height:400px;"></div>--%>
+            <div class="col-md-12">
                     <div id="map" style="width:100%; height:500px;"></div>
             </div>
-            <div class="col-md-6 h-50">
+            <div class="col-md-6">
                 <blockquote>
                     <div class="entry-header">
                         <h2 class="entry-title">
@@ -74,43 +73,11 @@
                         대구시 서구 와룡로65길  28 태백빌딩 409호
                     </div>
                 </blockquote>
-
             </div>
-
         </div>
+    </section>
 
-    </div>
-
-
-
-            <%--<div id="main-container" class="main-container">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 mb-5 mb-lg-0">
-                            <div class="post">
-                                <div class="post-media post-image pull-left">
-                                   &lt;%&ndash; <div id="map" style="width:500px;height:400px; position: center;" class="center-block"></div>&ndash;%&gt;
-                                </div>
-
-                                <div class="post-body col-md-4 col-md-offset-4">
-                                    <div class="entry-header">
-                                        <h2 class="entry-title">
-                                            오시는 길
-                                        </h2>
-                                    </div><!-- header end -->
-                                    <div class="entry-content">
-                                        대구시 서구 와룡로65길  28 태백빌딩 409호
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>--%>
-
-
-
-
+<%@include file="/WEB-INF/jsp/main/footer.jsp" %>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4a79c9b6e29d7cd685badb80476de25a&libraries=services,clusterer,drawing"></script>
 <script>
     var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
@@ -148,33 +115,8 @@
 
     <!-- Template custom -->
     <script src="<c:url value='/'/>constra/js/script.js"></script>
-<%--<!-- Mainly scripts -->
-<script src="<c:url value='/'/>js/jquery-2.1.1.js"></script>
-<script src="<c:url value='/'/>js/bootstrap.min.js"></script>
-<script src="<c:url value='/'/>js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="<c:url value='/'/>js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-
-<!-- Custom and plugin javascript -->
-<script src="<c:url value='/'/>js/inspinia.js"></script>
-<script src="<c:url value='/'/>js/plugins/pace/pace.min.js"></script>
-<!-- Ladda -->
-<script src="<c:url value='/'/>js/plugins/ladda/spin.min.js"></script>
-<script src="<c:url value='/'/>js/plugins/ladda/ladda.min.js"></script>
-<script src="<c:url value='/'/>js/plugins/ladda/ladda.jquery.min.js"></script>
-<script src="<c:url value='/'/>src/sweetalert.js"></script>
 
 
-<!-- Sweet alert -->
-<script src="<c:url value='/'/>js/plugins/sweetalert/sweetalert.min.js"></script>
-<!-- Peity -->
-<script src="<c:url value='/'/>js/plugins/peity/jquery.peity.min.js"></script>
-<!-- Peity demo -->
-<script src="<c:url value='/'/>js/demo/peity-demo.js"></script>
-<script src="<c:url value='/'/>js/vendors.bundle.js"></script>
-<!-- Toastr script -->
-<script src="<c:url value='/'/>js/plugins/toastr/toastr.min.js"></script>--%>
-
-    <%@include file="/WEB-INF/jsp/main/footer.jsp" %>
 </body>
 
 </html>

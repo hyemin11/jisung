@@ -45,23 +45,13 @@
                 <link href="<c:url value= 'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css'/>" rel="stylesheet">
                 <script src="<c:url value= 'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js'/>"></script>
 
-
     <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet" type="text/css" >
     <style>
-        .modal {
 
-            top:30%;
-
-
-        }
     </style>
 </head>
-
 <body>
-
 <%@include file="/WEB-INF/jsp/main/header.jsp" %>
-
-
 <section id="main-container" class="main-container">
     <div class="container">
         <div class="row">
@@ -88,20 +78,13 @@
                                     </td>
                                 </tr>
                             </table>
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         <label>내용</label>
-                        <%--<textarea name="nttCn" rows="10" id="summernote"/>--%>
                         <textarea id="summernote" name="nttCn" value=${nttCn}>
                         </textarea>
                     </div>
-
-                           <%-- <form:textarea path="nttCn" rows="10" cssClass="form-control form-control-message" id="summernote" />--%>
-
-
                     <div class="text-right"><br>
                         <button class="btn btn-primary solid blank"
                                 name="addNotice" id="addNotice" data-target="add"
@@ -109,27 +92,6 @@
                     </div>
                 </form:form>
 
-
-                <%--<form action="/cop/bbs/noticeRegist.do" method="post" name="noticeForm">
-                    <div class="error-container"></div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label>제목</label>
-                                <input name="nttSj" value="${nttSj}" type="text" class="form-control form-control-text">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>내용</label>
-                        <textarea name="nttCn" value="${nttCn}" rows="10" class="form-control form-control-message"></textarea>
-                    </div>
-                    <div class="text-right"><br>
-                        <button class="btn btn-primary solid blank"
-                                name="submit" id="submit" data-target="add">작성완료</button>
-                    </div>
-                </form>--%>
             </div>
         </div>
     </div>
@@ -150,17 +112,6 @@
 
     });
 
-/*function sendFile()
-{
-
-    var maxFileNum = document.board.posblAtchFileNumber.value;
-    if(maxFileNum==null || maxFileNum==""){
-        maxFileNum = 3;
-    }
-    var multi_selector = new MultiSelector( document.getElementById( 'egovComFileList' ), maxFileNum );
-    multi_selector.addElement( document.getElementById( 'egovComFileUploader' ) );
-
-}*/
 
 
 
@@ -173,12 +124,7 @@
         focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
         lang: "ko-KR",					// 한글 설정
         placeholder: '내용을 입력하세요.',	//placeholder 설정
-     /*   callbacks : {
-            onImageUpload : function (files) {
-                sendFile(files[0],this);
 
-            }
-        }*/
 
     });
 
@@ -223,29 +169,6 @@
     var multi_selector = new MultiSelector( document.getElementById( 'egovComFileList' ), maxFileNum );
     multi_selector.addElement( document.getElementById( 'egovComFileUploader' ) );
 </script>
-<%--<!--summernote-->
-<script src="<c:url value='/'/>summernote-0.8.18-dist/summernote.js"></script>
-<script src="<c:url value='/'/>summernote-0.8.18-dist/lang/summernote-ko-KR.js"></script>
-<script src="<c:url value='https://code.jquery.com/jquery-3.5.1.min.js'/>"></script>
-<script src="<c:url value='https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js'/>"></script>
-<script src="<c:url value='https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js'/>"></script>--%>
-<!-- Mainly scripts -->
-<%--<script src="<c:url value='/'/>js/jquery-2.1.1.js"></script>--%>
-<%--<script src="<c:url value='/'/>js/bootstrap.min.js"></script>--%>
-<%--<script src="<c:url value='/'/>js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="<c:url value='/'/>js/plugins/slimscroll/jquery.slimscroll.min.js"></script>--%>
-
-<!-- Custom and plugin javascript -->
-<%--<script src="<c:url value='/'/>js/inspinia.js"></script>
-<script src="<c:url value='/'/>js/plugins/pace/pace.min.js"></script>--%>
-
-<%--
-
-<script src="<c:url value='/'/>bootstrap-5.1.3-dist/js/bootstrap.js"></script>--%>
-<!-- Flot --><%--
-<script src="<c:url value='/'/>js/plugins/flot/jquery.flot.js"></script>
-<script src="<c:url value='/'/>js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-<script src="<c:url value='/'/>js/plugins/flot/jquery.flot.resize.js"></script>--%>
 
 <!-- Sweet alert -->
 <script src="<c:url value='/'/>js/plugins/sweetalert/sweetalert.min.js"></script>
