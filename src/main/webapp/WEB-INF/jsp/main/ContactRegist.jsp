@@ -48,7 +48,7 @@
 <body>
 <%@include file="/WEB-INF/jsp/main/header.jsp" %>
 
-<section id="main-container" class="main-container" style="min-height: 75.8%" >
+<section id="main-container" class="main-container"  style="min-height: calc(100vh - 255px);" >
     <div class="container">
         <div class="row">
             <div class="col-md-12">

@@ -86,7 +86,7 @@
                                 <input name="ntcrNm" type="hidden" value="<c:out value="${historyResult.ntcrNm}" />">
                                 <button type="button" class="btn btn-white btn-sm" onclick="javascript:fn_update_history();"><i class="fa fa-edit"></i> Edit</button><!-- 수정 -->
                             </form>
-                            <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Move to trash"  onclick="fn_delete_notice()"><i class="fa fa-trash-o"></i>Remove</button>
+                            <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Move to trash"  onclick="fn_delete_history()"><i class="fa fa-trash-o"></i>Remove</button>
                             <% } %>
                         </div>
                         <h4>
@@ -202,6 +202,8 @@
 
 <!-- Template custom -->
 <script src="<c:url value='/'/>constra/js/script.js"></script>
+<!-- Sweet alert -->
+<script src="<c:url value='/'/>js/plugins/sweetalert/sweetalert.min.js"></script>
 </body>
 
 

@@ -82,7 +82,7 @@
                     <input type="hidden" name="contactContents" value="<c:out value='${contactDetail.contactContents}'/>">
                     <div class="mail-box-header">
                         <div class="pull-right tooltip-demo">
-                            <button class="btn btn-white btn-sm demo3" id="demo3" name="demo3" type="button" onclick="javascript:fn_delete_contact(<c:out value='${contactDetail.contactUniqId}'/>);" data-toggle="tooltip" data-placement="top" title="Move to trash"><i class="fa fa-trash-o demo3">Remove</i></button>
+                            <button class="btn btn-white btn-lg demo3" id="demo3" name="demo3" type="button" onclick="javascript:fn_delete_contact(<c:out value='${contactDetail.contactUniqId}'/>);" data-toggle="tooltip" data-placement="top" title="Move to trash"><i class="fa fa-trash-o demo3">Remove</i></button>
                         </div>
                         <h5>
                             온라인문의
@@ -104,8 +104,8 @@
                             <c:out value="${contactDetail.contactContents}"/>
                         </div>
                         <div class="mail-body text-right tooltip-demo">
-                            <a class="btn btn-sm btn-white" href="javascript:history.back();"><i class="fa fa-reply"></i> Back to List</a>
-                            <button title="" data-placement="top" type="button" data-toggle="tooltip" data-original-title="Trash" class="btn btn-sm btn-white demo3" onclick="javascript:fn_delete_contact(<c:out value='${contactDetail.contactUniqId}'/>);"><i class="fa fa-trash-o"></i> Remove</button>
+                            <a class="btn btn-lg btn-white" href="javascript:history.back();"><i class="fa fa-reply"></i> Back to List</a>
+                            <button title="" data-placement="top" type="button" data-toggle="tooltip" data-original-title="Trash" class="btn btn-lg btn-white demo3" onclick="javascript:fn_delete_contact(<c:out value='${contactDetail.contactUniqId}'/>);"><i class="fa fa-trash-o"></i> Remove</button>
                         </div>
                         <div class="clearfix"></div>
                     </div>
