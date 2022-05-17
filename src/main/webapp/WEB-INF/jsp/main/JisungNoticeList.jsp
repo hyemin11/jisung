@@ -81,18 +81,14 @@
                                <div class="col-md-6 pull-right ">
                                    <form name="frm" action ="<c:url value='/cop/bbs/history.do'/>" method="post" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                                        <input type="hidden" name="bbsId" value="<c:out value='${boardVO.bbsId}'/>" />
-                                       <input type="hidden" name="nttId"  value="0" />
+                                       <%--<input type="hidden" name="nttId"  value="0" />--%>
                                        <input type="hidden" name="bbsTyCode" value="<c:out value='${brdMstrVO.bbsTyCode}'/>" />
                                        <input type="hidden" name="bbsAttrbCode" value="<c:out value='${brdMstrVO.bbsAttrbCode}'/>" />
                                        <input type="hidden" name="authFlag" value="<c:out value='${brdMstrVO.authFlag}'/>" />
                                        <input name="pageIndex" type="hidden" value="<c:out value='${searchVO.pageIndex}'/>"/>
                                        <input type="submit" value="실행" onclick="fn_egov_select_noticeList('1'); return false;" id="invisible" class="invisible" />
-
                                        <fieldset>
-
-
-
-                                           <button type="button" class="btn btn-outline-success pull-right" style="margin: 13px 0 0 13px;" onclick="javascript:fn_egov_select_noticeList('1'); return false;" >검색</button>
+                                           <button type="button" class="btn btn-warning pull-right" style="margin:8px 0 0 10px;width: 50px;height: 30px;font-size: medium;" onclick="javascript:fn_egov_select_noticeList('1'); return false;" >검색</button>
                                            <input type="text" name="searchWrd" value='<c:out value="${searchVO.searchWrd}"/>' class="form-control col-md-4 pull-right" style="margin: 0px;">
                                            <select name="searchCnd" class="select pull-right" title="검색조건 선택" style="margin: 13px 13px 0 0;">
                                                <option value="0" <c:if test="${searchVO.searchCnd == '0'}">selected="selected"</c:if> >제목</option>
@@ -101,9 +97,7 @@
                                            </select>
                                        </fieldset>
                                    </form>
-
                                </div>
-
                            </div>
                             <table class="table table-hover">
                                 <thead>
@@ -120,8 +114,8 @@
                                         <td>
                                             <c:out value="${paginationInfo.totalRecordCount+1 - ((searchVO.pageIndex-1) * searchVO.pageSize + status.count)}"/>
                                         </td>
-                                            <%--@elvariable id="resultList" type="egovframework.let.cop.bbs.service.BoardVO"--%>
-                                        <form:form modelAttribute="resultList" name="resultList" method="post" action="/cop/bbs/selectNotice.do">
+                                            <%--@elvariable id="searchVO" type="egovframework.let.cop.bbs.service.BoardVO"--%>
+                                        <form:form modelAttribute="searchVO" name="searchVO" method="post" action="/cop/bbs/selectNotice.do">
                                             <td>
                                                 <input type="hidden" name="nttId" value="<c:out value='${result.nttId}' />" />
                                                 <input type="hidden" name="bbsId" value="<c:out value='${result.bbsId}' />" />
@@ -148,7 +142,7 @@
                                                     if(loginVO != null){
                                                 %>
                                                 <a href="<c:url value='/'/>cop/bbs/noticeWrite.do">
-                                                    <button type="button" class="btn btn-outline btn-default" href="<c:url value='/'/>cop/bbs/noticeWrite.do">write</button></a>
+                                                    <button type="button" class="btn btn-outline btn-warning btn-lg" href="<c:url value='/'/>cop/bbs/noticeWrite.do">write</button></a>
 
                                                 <% } %>
                                             </div>

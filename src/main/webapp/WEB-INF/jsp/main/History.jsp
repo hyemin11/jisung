@@ -104,8 +104,11 @@
                     <%--@elvariable id="board" type="egovframework.let.cop.bbs.service.Board"--%>
                     <form name="board" action="/cop/bbs/historyWrite.do" method="post">
                         <input type="hidden" name="bbsId" value="${bbsId}" />
-                        <button type="button" class="btn btn-outline btn-default"
-                                onclick="javascript:boardInfo(${bbsId})">write</button>
+                        <button type="button" class="btn btn-outline btn-warning btn-lg"
+                                onclick="javascript:boardInfo(${bbsId})"
+                                style="font-size: medium;margin-top: 50px;">
+                            write
+                        </button>
                     </form>
                     <% } %>
 
@@ -121,7 +124,7 @@
                         <input type="submit" value="실행" onclick="fn_egov_select_noticeList('1'); return false;" id="invisible" class="invisible" />
 
                         <fieldset>
-                            <button type="button" class="btn btn-outline-success pull-right" style="margin: 30px 0 0 0;" onclick="javascript:fn_egov_select_noticeList('1'); return false;" >검색</button>
+                            <button type="button" class="btn btn-warning pull-right" style="margin: 30px 0 0 0;width: 50px;height: 30px;font-size: medium;" onclick="javascript:fn_egov_select_noticeList('1'); return false;" >검색</button>
                             <input type="text" name="searchWrd" value='<c:out value="${searchVO.searchWrd}"/>' class="form-control col-md-4 pull-right" style="margin: 20px;">
                         </fieldset>
                     </form>
@@ -133,12 +136,25 @@
                         <div class="ibox">
                             <div class="ibox-content product-box">
                                 <div class="product-imitation" style="padding: 0px; ">
-                                    <c:if test="${resultList.atchFileId eq ''}">
-                                        <img src="<c:url value='/'/>images/defaultimage.png" style="object-fit: cover;width: 247px; padding-bottom: 40px; padding-top: 40px"  />
-                                    </c:if>
+
+
+
+                                <form action="/cop/bbs/historyDetail.do" method="post" name="resultList" >
+                                        <input type="hidden" name="nttId" value="<c:out value='${resultList.nttId}' />" />
+                                        <input type="hidden" name="bbsId" value="<c:out value='${resultList.bbsId}' />" />
+                                    <button type="submit" style="border: 0px;">
+
+                                        <c:if test="${resultList.atchFileId eq ''}">
+                                            <img src="<c:url value='/'/>images/defaultimage.png" style="object-fit: cover;width: 247px; padding-bottom: 40px; padding-top: 40px"  />
+                                        </c:if>
                                         <c:import url="/cmm/fms/selectImageFileInfs.do" charEncoding="utf-8" >
                                             <c:param name="atchFileId" value="${resultList.atchFileId}" />
                                         </c:import>
+
+                                    </button>
+
+                                </form>
+
                                 </div>
                                 <div class="product-desc">
                                     <form:form modelAttribute="resultList" name="resultList" method="post" action="/cop/bbs/historyDetail.do">
@@ -146,7 +162,7 @@
                                             <input type="hidden" name="nttId" value="<c:out value='${resultList.nttId}' />" />
                                             <input type="hidden" name="bbsId" value="<c:out value='${resultList.bbsId}' />" />
                                             <input type="submit" value="<c:out value='${resultList.nttSj}' />" class="product-name"
-                                                   style="border:0px;background: transparent;" onclick="javascript:fn_notice_list(${resultList.nttId}, ${resultList.bbsId})" />
+                                                   style="border:0px;background: transparent;" onclick="javascript:fn_history_list(${resultList.nttId}, ${resultList.bbsId})" />
                                         </td>
                                     </form:form>
                                     <div class="small m-t-xs">
@@ -171,14 +187,21 @@
                                                     <input type="hidden" name="sortOrdr" value="<c:out value='${resultList.sortOrdr}'/>" >
                                                     <input type="hidden" name="replyLc" value="<c:out value='${resultList.replyLc}'/>" >
                                                     <input name="ntcrNm" type="hidden" value="<c:out value="${resultList.ntcrNm}" />">
-                                                    <button type="button" class="btn btn-white btn-sm" onclick="javascript:fn_update_history(this.form);"><i class="fa fa-edit"></i></button><!-- 수정 -->
+                                                    <button type="button" class="btn btn-white btn-lg" style="font-size: medium"
+                                                            onclick="javascript:fn_update_history(this.form);">
+                                                        <i class="fa fa-edit"></i>
+                                                    </button><!-- 수정 -->
                                                 </form>
 
                                                 <form name="formDelete" action="<c:url value='/cop/bbs/historyDelete.do'/>" method="post" style="float:left; margin:0 0 0 3px;">
 
                                                         <input name="nttId" type="hidden" value="<c:out value="${resultList.nttId}" />" />
                                                         <input name="bbsId" type="hidden" value="BBSMSTR_DDDDDDDDDDDD" />
-                                                        <button type="button" class="btn btn-danger" title="Move to trash" onclick="fn_egov_delete_article(this.form); return false;" ><i class="fa fa-trash-o"></i></button><!-- 삭제 -->
+                                                        <button type="button" class="btn btn-danger btn-lg"
+                                                                style="font-size: medium"
+                                                                title="Move to trash" onclick="fn_egov_delete_article(this.form); return false;" >
+                                                            <i class="fa fa-trash-o"></i>
+                                                        </button><!-- 삭제 -->
                                                 </form>
                                             </div>
                                                         <% } %>
@@ -209,6 +232,13 @@
 <%@include file="/WEB-INF/jsp/main/footer.jsp" %>
 
 <script>
+
+    function fn_history_list(nttId,bbsId) {
+        document.resultList.nttId.value = nttId;
+        document.resultList.bbsId.value = bbsId;
+        document.resultList.action = "<c:url value='/cop/bbs/historyDetail.do'/>";
+        document.resultList.submit();
+    }
 
     $(document).ready(function () {
         // media popup

@@ -72,7 +72,6 @@ public class NoticeController {
         LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
         boardVO.setBbsId("BBSMSTR_AAAAAAAAAAAA");
         boardVO.setBbsNm("공지사항");
-        boardVO.getNtcrNm();
         BoardMasterVO vo = new BoardMasterVO();
         vo.setBbsId(boardVO.getBbsId());
         vo.setUniqId(user.getUniqId());

@@ -85,7 +85,7 @@
                                 <input name="pageIndex" type="hidden" value="<c:out value='${searchVO.pageIndex}'/>"/>
                                 <input type="submit" value="실행" onclick="fn_egov_select_contactList('1'); return false;" id="invisible" class="invisible" />
                                 <fieldset>
-                                    <button type="button" class="btn btn-outline-success pull-right" style="margin: 13px 0 0 13px;" onclick="javascript:fn_egov_select_contactList('1'); return false;" >검색</button>
+                                    <button type="button"class="btn btn-warning pull-right" style="margin:8px 0 0 10px;width: 50px;height: 30px;font-size: medium;" onclick="javascript:fn_egov_select_contactList('1'); return false;" >검색</button>
                                     <input type="text" name="searchWrd" value='<c:out value="${searchVO.searchWrd}"/>' class="form-control col-md-4 pull-right" style="margin: 0px;">
                                     <select name="searchCnd" class="select pull-right" title="검색조건 선택" style="margin: 13px 13px 0 0;">
                                         <option value="0" <c:if test="${searchVO.searchCnd == '0'}">selected="selected"</c:if> >제목</option>
