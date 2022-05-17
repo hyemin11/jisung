@@ -16,10 +16,6 @@
 <html>
 
 <!-- Header start -->
-
-
-
-    <!--/ Topbar end -->
     <header id="header" class="header-one">
         <%-- <div class="site-navigation navbar-fixed">--%>
         <div class="bg-white">

@@ -49,50 +49,50 @@ public class PageViewController {
     @RequestMapping("/cop/bbs/smartFactory.do")
     public String getSmartFactory(HttpServletRequest request) throws Exception
     {
-        return "/main/SmartFactory";
+        return "others/SmartFactory";
     }
 
     @RequestMapping("/cop/bbs/government.do")
     public String getGovernment(HttpServletRequest request) throws Exception
     {
-        return "/main/GovernmentBiz";
+        return "others/GovernmentBiz";
     }
 
 
     @RequestMapping("/cop/bbs/mes.do")
     public String getMES(HttpServletRequest request) throws Exception
     {
-        return "/main/MES";
+        return "others/MES";
     }
 
     @RequestMapping("/cop/bbs/smartFarm.do")
     public String getSmartFarm(HttpServletRequest request) throws Exception
     {
-        return "/main/SmartFarm";
+        return "others/SmartFarm";
     }
 
     @RequestMapping("/cop/bbs/googleMaps.do")
     public String getMap(HttpServletRequest request) throws Exception
     {
-        return "/main/Map";
+        return "others/Map";
     }
 
     @RequestMapping("/cop/bbs/organization.do")
     public String getOrganization(HttpServletRequest request) throws Exception
     {
-        return "/main/OrganizationChart";
+        return "others/OrganizationChart";
     }
 
     @RequestMapping("/cop/bbs/system.do")
     public String getSystem(HttpServletRequest request) throws Exception
     {
-        return "/main/SystemGovBiz";
+        return "others/SystemGovBiz";
     }
 
     @RequestMapping("/cop/bbs/introduce.do")
     public String getIntroduce(HttpServletRequest request) throws Exception
     {
-        return "/main/Introduce";
+        return "others/Introduce";
     }
 
 

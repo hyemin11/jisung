@@ -104,8 +104,6 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-
-
                     <div class="mail-box">
                         <form name="noticeResult" method="post" action="<c:url value='/'/>cop/bbs/noticeDelete.do">
                             <input type="hidden" name="bbsId" value="<c:out value="${historyResult.bbsId}"/>"/>

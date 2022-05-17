@@ -67,7 +67,7 @@ public class HistoryController {
         board.setBbsId("BBSMSTR_DDDDDDDDDDDD");
         // view의 contactForm 어트리뷰트
         model.addAttribute("board",board);
-        return "main/AddHistory";
+        return "history/AddHistory";
     }
 /**
      * 협력업체를 등록한다.
@@ -113,7 +113,7 @@ public class HistoryController {
             model.addAttribute("brdMstrVO", master);
             ////-----------------------------
 
-            return "main/AddHistory";
+            return "history/AddHistory";
         }
 
         if (isAuthenticated) {
@@ -188,7 +188,7 @@ public class HistoryController {
 
         String atchFileId = boardVO.getAtchFileId();
 
-        return "main/History";
+        return "history/History";
     }
 
 
@@ -230,7 +230,7 @@ public class HistoryController {
 
 
 
-        return "main/HistoryDetail";
+        return "history/HistoryDetail";
     }
     /**
      * 삭제한다.
@@ -276,7 +276,7 @@ public class HistoryController {
         ////-----------------------------
         model.addAttribute("board",board);
 
-        return "main/HistoryUpdt";
+        return "history/HistoryUpdt";
     }
 
     /**

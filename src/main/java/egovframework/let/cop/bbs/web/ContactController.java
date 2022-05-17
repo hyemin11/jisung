@@ -57,7 +57,7 @@ public class ContactController {
     {
         // view의 contactForm 어트리뷰트
         model.addAttribute("contactForm",contactVO);
-        return "main/ContactRegist";
+        return "contact/ContactRegist";
     }
 
     /**
@@ -111,7 +111,7 @@ public class ContactController {
         model.addAttribute("resultCnt", map.get("resultCnt"));
         model.addAttribute("paginationInfo", paginationInfo);
 
-        return "main/ContactList";
+        return "contact/ContactList";
 
     }
 
@@ -130,7 +130,7 @@ public class ContactController {
 
         ContactVO vo = contactService.selectContactDetail(contactVO);
         model.addAttribute("contactDetail", vo);
-        return "main/ContactDetail";
+        return "contact/ContactDetail";
     }
 
 

@@ -104,7 +104,7 @@ public class NoticeController {
         model.addAttribute("brdMstrVO", master);
         model.addAttribute("paginationInfo", paginationInfo);
 
-        return "main/JisungNoticeList";
+        return "notice/JisungNoticeList";
     }
 
     /**
@@ -160,7 +160,7 @@ public class NoticeController {
         }
 
 
-        return "main/NoticeDetail";
+        return "notice/NoticeDetail";
     }
 
     /**
@@ -193,7 +193,7 @@ public class NoticeController {
     {
         // view의 contactForm 어트리뷰트
         model.addAttribute("boardForm",board);
-        return "main/NoticeRegist";
+        return "notice/NoticeRegist";
     }
 
     /**
@@ -255,7 +255,7 @@ public class NoticeController {
         ////-----------------------------
         model.addAttribute("board",boardVO);
 
-        return "main/NoticeUpdate";
+        return "notice/NoticeUpdate";
     }
 
 
@@ -279,27 +279,7 @@ public class NoticeController {
         String atchFileId = boardVO.getAtchFileId();
 
         beanValidator.validate(board, bindingResult);
-        /*if (bindingResult.hasErrors()) {
 
-            boardVO.setFrstRegisterId(user.getUniqId());
-
-            BoardMaster master = new BoardMaster();
-            BoardMasterVO bmvo = new BoardMasterVO();
-            BoardVO bdvo = new BoardVO();
-
-            master.setBbsId(boardVO.getBbsId());
-            master.setUniqId(user.getUniqId());
-
-            bmvo = bbsAttrbService.selectBBSMasterInf(master);
-            bdvo = bbsMngService.selectBoardArticle(boardVO);
-
-            model.addAttribute("result", bdvo);
-            model.addAttribute("bdMstr", bmvo);
-
-            return "cop/bbs/EgovNoticeUpdt";
-        }*/
-
-       /* if (isAuthenticated) {*/
             final Map<String, MultipartFile> files = multiRequest.getFileMap();
             if (!files.isEmpty()) {
                 if ("".equals(atchFileId)) {
@@ -320,7 +300,6 @@ public class NoticeController {
             board.setNttCn(unscript(board.getNttCn()));	// XSS 방지
 
             bbsMngService.updateBoardArticle(board);
-        /*}*/
 
         return "forward:/cop/bbs/notice.do";
     }
