@@ -99,8 +99,6 @@
 
                     <div class="form-group">
                         <label>내용</label>
-                        <%--<form:textarea path="nttCn" rows="10" cssClass="form-control form-control-message" id="nttCn"> </form:textarea>--%>
-                            <%--<textarea name="nttCn" value="${nttCn}" rows="10" class="form-control form-control-message"></textarea>--%>
                         <textarea name="nttCn" rows="10" id="summernote">${result.nttCn}</textarea>
                     </div>
 
