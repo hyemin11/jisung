@@ -105,8 +105,6 @@ public class ContactController {
         int totCnt = Integer.parseInt((String)map.get("resultCnt"));
         paginationInfo.setTotalRecordCount(totCnt);
 
-        //List<ContactVO> resultList = contactService.selectContactList(contactVO);
-       // model.addAttribute("resultList", resultList);
         model.addAttribute("resultList", map.get("resultList"));
         model.addAttribute("resultCnt", map.get("resultCnt"));
         model.addAttribute("paginationInfo", paginationInfo);
