@@ -29,13 +29,23 @@
 
 
     <link href="<c:url value='/'/>css/animate.css" rel="stylesheet">
-    <link href="<c:url value='/'/>css/style2.css" rel="stylesheet">
-    <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet" type="text/css" >
+    <%--<link href="<c:url value='/'/>css/style2.css" rel="stylesheet">--%>
+
     <!-- Sweet Alert -->
     <link href="<c:url value='/'/>src/sweetalert.css" rel="stylesheet">
     <!-- Sweet Alert -->
     <link href="<c:url value='/'/>css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <!--summernote-->
 
+    <script src="<c:url value= 'https://code.jquery.com/jquery-3.5.1.min.js'/>" crossorigin="anonymous"></script>
+    <script src="<c:url value= 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'/>" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="<c:url value= 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh'/>" crossorigin="anonymous">
+    <script src="<c:url value= 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'/>" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <link href="<c:url value= 'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css'/>" rel="stylesheet">
+    <script src="<c:url value= 'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js'/>"></script>
+    <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet" type="text/css" >
 </head>
 <body>
 <%@include file="/WEB-INF/jsp/main/header.jsp" %>
@@ -86,8 +96,14 @@
                     </div>
                     <div class="form-group">
                         <label>내용</label>
-                        <textarea name="nttCn" rows="10" class="form-control form-control-message"><c:out value="${result.nttCn}" escapeXml="false" default="${result.nttCn}"/></textarea>                            <%--<textarea name="nttCn" value="${nttCn}" rows="10" class="form-control form-control-message" ></textarea>--%>
+                        <textarea name="nttCn" rows="2" class="form-control form-control-message"><c:out value="${result.nttCn}" escapeXml="false" default="${result.nttCn}"/></textarea>                            <%--<textarea name="nttCn" value="${nttCn}" rows="10" class="form-control form-control-message" ></textarea>--%>
                     </div>
+                    <div class="form-group">
+                        <label>상세설명</label>
+                        <textarea id="summernote" name="historyInfo"><c:out value="${result.historyInfo}"/>
+                        </textarea>
+                    </div>
+
                     <input type="hidden" name="bbsId" value="<c:out value='${result.bbsId}'/>" />
                     <input type="hidden" name="nttId" value="<c:out value='${result.nttId}'/>" />
                     <input type="hidden" name="bbsAttrbCode" value="<c:out value='${bdMstr.bbsAttrbCode}'/>" />
@@ -110,7 +126,17 @@
 <%@include file="/WEB-INF/jsp/main/footer.jsp" %>
 
 <script type="text/javascript">
+    $('#summernote').summernote({
 
+        height: 300,                 // 에디터 높이
+        minHeight: null,             // 최소 높이
+        maxHeight: null,             // 최대 높이
+        focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+        lang: "ko-KR",					// 한글 설정
+        placeholder: '내용을 입력하세요.',	//placeholder 설정
+
+
+    });
     async function updateHistory() {
 
         var data = $("#submitHis").data('target');

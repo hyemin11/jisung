@@ -71,7 +71,6 @@ public class NoticeController {
     {
         LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
         boardVO.setBbsId("BBSMSTR_AAAAAAAAAAAA");
-        boardVO.setBbsNm("공지사항");
         BoardMasterVO vo = new BoardMasterVO();
         vo.setBbsId(boardVO.getBbsId());
         vo.setUniqId(user.getUniqId());
@@ -105,6 +104,7 @@ public class NoticeController {
         model.addAttribute("paginationInfo", paginationInfo);
 
         return "notice/JisungNoticeList";
+        /*return "cop/bbs/EgovNoticeList";*/
     }
 
     /**
@@ -203,14 +203,28 @@ public class NoticeController {
      * @throws Exception
      */
     @RequestMapping(value = "/cop/bbs/noticeRegist.do", method = {RequestMethod.POST, RequestMethod.GET})
-    public String insertNotice(@ModelAttribute("boardForm") BoardVO vo) throws Exception {
+    public String insertNotice(final MultipartHttpServletRequest multiRequest, @ModelAttribute("searchVO") BoardVO boardVO,
+                               @ModelAttribute("bdMstr") BoardMaster bdMstr, @ModelAttribute("board") Board board, BindingResult bindingResult, SessionStatus status,
+                               ModelMap model) throws Exception {
         // view에서 contactForm 에 잇는데이터가져오기
+        LoginVO user = (LoginVO) EgovUserDetailsHelper.getAuthenticatedUser();
+        Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();
 
-        // 가져온데이터 넣기
-        vo.setBbsId("BBSMSTR_AAAAAAAAAAAA");
-        vo.setBbsNm("공지사항");
-        vo.setNtcrNm("운영자");
-        bbsMngService.insertBoardArticle(vo);
+            List<FileVO> result = null;
+            String atchFileId = "";
+
+            final Map<String, MultipartFile> files = multiRequest.getFileMap();
+            if (!files.isEmpty()) {
+                result = fileUtil.parseFileInf(files, "BBS_", 0, "", "");
+                atchFileId = fileMngService.insertFileInfs(result);
+            }
+            board.setAtchFileId(atchFileId);
+            board.setFrstRegisterId(user.getUniqId());
+            // 가져온데이터 넣기
+            board.setBbsId("BBSMSTR_AAAAAAAAAAAA");
+            bbsMngService.insertBoardArticle(board);
+
+
         return "redirect:/cop/bbs/notice.do";
     }
 

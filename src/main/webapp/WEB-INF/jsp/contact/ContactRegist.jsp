@@ -43,6 +43,16 @@
     <link href="<c:url value='/'/>css/animate.css" rel="stylesheet">
     <link href="<c:url value='/'/>css/style2.css" rel="stylesheet">
     <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet" type="text/css" >
+
+    <style>
+
+        #box1 {
+            height: 100px;
+            overflow:auto;
+            border: 1px solid #d5d5d5;
+            padding: 0 0.5em;
+        }
+    </style>
 </head>
 
 <body>
@@ -56,7 +66,21 @@
                     <%--@elvariable id="contactForm" type="egovframework.let.cop.bbs.service.ContactVO"--%>
                     <form:form modelAttribute="contactForm" name="contactForm" method="post" action="/cop/bbs/contactRegist.do">
                     <div class="error-container"></div>
-                        <div class="row">
+                        <div class="form-group" id="box1">
+                            <h4>개인정보수집 및 이용에 대한 안내</h4>
+
+                            <p>'지성소프트'는 고객님의 문의요청에 정확하고 성실한 답변을 드리기 위해 필요한 최소한의 개인정보를 수집하고 있습니다.
+                            <br>
+                                이에 개인정보의 수집 및 이용에 관하여 아래와 같이 고지하오니 충분히 읽어보신 후 동의하여 주시기 바랍니다.</p>
+                            <p> 수집 및 이용목적 : 지성소프트 1:1문의에 대한 답변 <br>
+                                수집항목 : 이름, 전화번호, 이메일주소 <br>
+                                보유기간 : 1년
+                            </p>
+                        </div>
+                        <div style="margin: 10px; display: block" class="pull-right" name="whatever" >
+                            <input type="checkbox" value="동의합니다." name="myCheckbox" id="myCheckbox"  >동의합니다.
+                        </div>
+                        <div class="row col-md-12">
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>성명</label>
@@ -81,14 +105,16 @@
                                     <form:input path="contactPhone" cssClass="form-control form-control-text"  />
                                 </div>
                             </div>
-                        </div>
-
-                            <div class="form-group">
+                            <div class="form-group col-md-12">
                                 <label>내용</label>
                                 <form:textarea path="contactContents" cssClass="form-control form-control-message" rows="10" />
                             </div>
                             <form:hidden path="contactIndexNumber" />
-                        <div class="text-right"><br>
+
+                        </div>
+
+
+                        <div class="text-right col-md-2 pull-right"><br><br>
 
                            <button type="button" class="btn btn-primary solid blank"
                                     name="addContact"  id="addContact" form="contactForm" data-target="add" data-style="expand-right"
@@ -103,6 +129,12 @@
 
 <%@include file="/WEB-INF/jsp/main/footer.jsp" %>
 <script>
+
+    var cbox = document.getElementById('myCheckbox');
+
+
+
+
     async function fn_submit_contact() {
         var data = $("#addContact").data('target');
 
@@ -130,8 +162,13 @@
                 text: "내용을 입력하세요."
             });
             return false;
+        } else if( cbox.checked == false){
+            swal({
+                title: "",
+                text: "약관에 동의하세요."
+            });
+            return false;
         } else if (data=='add') {
-
             await swal({
                 title: "완료",
                 text: "등록이 완료되었습니다.",

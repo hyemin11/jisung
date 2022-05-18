@@ -93,7 +93,7 @@
 			WHERE
 				ATCH_FILE_ID = #{atchFileId}
 			AND 
-				FILE_SN = #{fileSn}	
+				FILE_SN = '0'
  		
  	</select>
 
@@ -164,6 +164,28 @@
 			AND 
 				a.USE_AT = 'Y'				
 			ORDER BY b.FILE_SN
+
+
+	</select>
+
+	<select id="FileManageDAO.selectImageFileLists" parameterType="FileVO" resultMap="fileList">
+
+		SELECT
+			a.ATCH_FILE_ID, b.FILE_CN, b.FILE_SN, b.FILE_STRE_COURS, b.STRE_FILE_NM,
+			b.FILE_EXTSN, b.ORIGNL_FILE_NM, b.FILE_SIZE, a.CREAT_DT
+		FROM
+			LETTNFILE a, LETTNFILEDETAIL b
+		WHERE
+		      b.FILE_SN = '0'
+		  AND
+			a.ATCH_FILE_ID = #{atchFileId}
+		  AND
+			a.ATCH_FILE_ID = b.ATCH_FILE_ID
+		  AND
+			UPPER(b.FILE_EXTSN) IN ('GIF','JPG','BMP','PNG')
+		  AND
+			a.USE_AT = 'Y'
+		ORDER BY b.FILE_SN
 
 
 	</select>

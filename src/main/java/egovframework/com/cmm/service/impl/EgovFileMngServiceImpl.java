@@ -164,4 +164,14 @@ public class EgovFileMngServiceImpl extends EgovAbstractServiceImpl implements E
 	public List<FileVO> selectImageFileList(FileVO vo) throws Exception {
 	return fileMngDAO.selectImageFileList(vo);
     }
+
+    /**
+     * 이미지 파일에 대한 목록을 조회한다.
+     *
+     * @see egovframework.com.cmm.service.EgovFileMngService#selectImageFileList(egovframework.com.cmm.service.FileVO)
+     */
+    @Override
+    public List<FileVO> selectImageFileLists(FileVO vo) throws Exception {
+        return fileMngDAO.selectImageFileLists(vo);
+    }
 }

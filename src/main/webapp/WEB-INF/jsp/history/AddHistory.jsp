@@ -20,17 +20,32 @@
   ================================================== -->
     <link rel="icon" type="image/png" href="images/favicon.png">
 
-    <link href="<c:url value='/'/>plugins/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/animate-css/animate.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/slick/slick.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/slick/slick-theme.css" rel="stylesheet" type="text/css" >
-    <link href="<c:url value='/'/>plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css" >
+    <link href="<c:url value='/'/>constra/plugins/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="<c:url value='/'/>constra/plugins/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" >
+    <link href="<c:url value='/'/>constra/plugins/animate-css/animate.css" rel="stylesheet" type="text/css" >
+    <link href="<c:url value='/'/>constra/plugins/slick/slick.css" rel="stylesheet" type="text/css" >
+    <link href="<c:url value='/'/>constra/plugins/slick/slick-theme.css" rel="stylesheet" type="text/css" >
+    <link href="<c:url value='/'/>constra/plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css" >
+
+
+    <!--summernote-->
+
+    <script src="<c:url value= 'https://code.jquery.com/jquery-3.5.1.min.js'/>" crossorigin="anonymous"></script>
+    <script src="<c:url value= 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'/>" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="<c:url value= 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh'/>" crossorigin="anonymous">
+    <script src="<c:url value= 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'/>" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <link href="<c:url value= 'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css'/>" rel="stylesheet">
+    <script src="<c:url value= 'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js'/>"></script>
+    <%--<link href="<c:url value='/'/>css/style2.css" rel="stylesheet">--%>
+
+    <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet" type="text/css" >
 
 
     <link href="<c:url value='/'/>css/animate.css" rel="stylesheet">
-    <link href="<c:url value='/'/>css/style2.css" rel="stylesheet">
-    <link href="<c:url value='/'/>constra/css/style.css" rel="stylesheet" type="text/css" >
+
+
     <!-- Sweet Alert -->
     <link href="<c:url value='/'/>src/sweetalert.css" rel="stylesheet">
     <!-- Sweet Alert -->
@@ -75,19 +90,24 @@
                                 <form:input path="homepage" cssClass="form-control form-control-text" />
                             </div>
                         </div>
-                                <table class="col-md-4">
-                                    <tr>
-                                        <th height="23"><label for="egovComFileUploader"><spring:message code="cop.atchFile" /></label></th>
-                                        <td colspan="3">
-                                            <input name="file_1" id="egovComFileUploader" type="file" />
-                                            <div id="egovComFileList"></div>
-                                        </td>
-                                    </tr>
-                                </table>
+                        <table class="col-md-4">
+                            <tr>
+                                <th height="23"><label for="egovComFileUploader"><spring:message code="cop.atchFile" /></label></th>
+                                <td colspan="3">
+                                    <input name="file_1" id="egovComFileUploader" type="file" />
+                                    <div id="egovComFileList"></div>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                     <div class="form-group">
                         <label>내용</label>
-                        <form:textarea path="nttCn" cssClass="form-control form-control-message" rows="10" />
+                        <form:textarea path="nttCn" cssClass="form-control form-control-message" rows="2" />
+                    </div>
+                    <div class="form-group">
+                        <label>상세설명</label>
+                        <textarea id="summernote" name="historyInfo" value=${historyInfo}>
+                        </textarea>
                     </div>
                     <div class="text-right"><br>
                         <button class="btn btn-primary solid blank" type="button" name="submitHis" id="submitHis" data-target="add"
@@ -105,6 +125,17 @@
 <%@include file="/WEB-INF/jsp/main/footer.jsp" %>
 
 <script type="text/javascript">
+    $('#summernote').summernote({
+
+        height: 300,                 // 에디터 높이
+        minHeight: null,             // 최소 높이
+        maxHeight: null,             // 최대 높이
+        focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+        lang: "ko-KR",					// 한글 설정
+        placeholder: '내용을 입력하세요.',	//placeholder 설정
+
+
+    });
 
 
     var maxFileNum = document.board.posblAtchFileNumber.value;

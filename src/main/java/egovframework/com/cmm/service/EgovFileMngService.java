@@ -112,4 +112,13 @@ public interface EgovFileMngService {
      * @throws Exception
      */
     public List<FileVO> selectImageFileList(FileVO vo) throws Exception;
+
+    /**
+     * 이미지 파일에 대한 목록을 조회한다.
+     *
+     * @param vo
+     * @return
+     * @throws Exception
+     */
+    public List<FileVO> selectImageFileLists(FileVO vo) throws Exception;
 }

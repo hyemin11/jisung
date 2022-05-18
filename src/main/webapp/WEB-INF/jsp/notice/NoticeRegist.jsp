@@ -58,8 +58,21 @@
             <div class="col-md-12">
                 <h3 class="column-title">공지글쓰기</h3>
 
-                <%--@elvariable id="boardForm" type="egovframework.let.cop.bbs.service.Board"--%>
-                <form:form modelAttribute="boardForm" method="post" name="boardForm" >
+                <%--@elvariable id="board" type="egovframework.let.cop.bbs.service.BoardVO"--%>
+                <form:form modelAttribute="board" method="post" name="board" enctype="multipart/form-data">
+                    <input type="hidden" name="bbsId" value="BBSMSTR_AAAAAAAAAAAA" />
+                    <input type="hidden" name="bbsAttrbCode" value="<c:out value='${bdMstr.bbsAttrbCode}'/>" />
+                    <input type="hidden" name="replyPosblAt" value="N" />
+                    <input type="hidden" name="fileAtchPosblAt" value="Y" />
+                    <input type="hidden" name="posblAtchFileNumber" value=3 />
+                    <input type="hidden" name="posblAtchFileSize" value="<c:out value='${bdMstr.posblAtchFileSize}'/>" />
+                    <input type="hidden" name="tmplatId" value="<c:out value='${bdMstr.tmplatId}'/>" />
+                    <input type="hidden" name="password" value="0000" />
+                    <input type="hidden" name="ntcrNm" value="운영자" />
+                    <c:if test="${bdMstr.bbsAttrbCode != 'BBSA01'}">
+                        <input name="ntceBgnde" type="hidden" value="10000101" />
+                        <input name="ntceEndde" type="hidden" value="99991231" />
+                    </c:if>
                     <div class="error-container"></div>
                     <div class="row">
                         <div class="col-md-5">
@@ -132,13 +145,13 @@
     async function insertNotice() {
         var data = $("#addNotice").data('target');
 
-        if (document.boardForm.nttSj.value == "") {
+        if (document.board.nttSj.value == "") {
             swal({
                 title: "",
                 text: "제목을 입력하세요."
             });
             return false;
-        } else if (document.boardForm.nttCn.value == "") {
+        } else if (document.board.nttCn.value == "") {
             swal({
                 title: "",
                 text: "내용을 입력하세요."
@@ -154,8 +167,8 @@
             });
             $(".confirm").click(function ()
             {
-                document.boardForm.action = "<c:url value='/cop/bbs/noticeRegist.do' />";
-                document.boardForm.submit();
+                document.board.action = "<c:url value='/cop/bbs/noticeRegist.do' />";
+                document.board.submit();
             });
 
         }

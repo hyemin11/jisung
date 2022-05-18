@@ -69,6 +69,8 @@ public class BoardVO extends Board implements Serializable {
 	/** 페이지당 레코드 개수 */
 	private int recordCountPerPage = 10;
 
+	private int contactIndexNumber=1;
+
 	/** 레코드 번호 */
 	private int rowNo = 0;
 

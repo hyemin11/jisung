@@ -155,4 +155,20 @@ public class EgovFileMngController {
 
 	return "cmm/fms/EgovImgFileList";
     }
+
+	@RequestMapping("/cmm/fms/selectImageFileInf.do")
+	public String selectImageFileInf(@ModelAttribute("searchVO") FileVO fileVO, @RequestParam Map<String, Object> commandMap,
+									  ModelMap model) throws Exception {
+
+		String atchFileId = (String)commandMap.get("atchFileId");
+
+		fileVO.setAtchFileId(atchFileId);
+		List<FileVO> result = fileService.selectImageFileLists(fileVO);
+
+		model.addAttribute("fileList", result);
+
+		return "cmm/fms/EgovImgFileLists";
+	}
+
+
 }

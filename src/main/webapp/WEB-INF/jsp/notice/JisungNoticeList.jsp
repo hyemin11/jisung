@@ -75,16 +75,17 @@
             <div class="col-md-12">
                 <div class="wrapper wrapper-content animated fadeInRight">
 
+
                            <div class="row" style="height: content-box">
                                <div class="col-md-5 pull-left ">
                                </div>
                                <div class="col-md-6 pull-right ">
                                    <form name="frm" action ="<c:url value='/cop/bbs/history.do'/>" method="post" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                                        <input type="hidden" name="bbsId" value="<c:out value='${boardVO.bbsId}'/>" />
-                                       <%--<input type="hidden" name="nttId"  value="0" />--%>
-                                       <input type="hidden" name="bbsTyCode" value="<c:out value='${brdMstrVO.bbsTyCode}'/>" />
+                                       <input type="hidden" name="nttId"  value="0" />
+                                       <%--<input type="hidden" name="bbsTyCode" value="<c:out value='${brdMstrVO.bbsTyCode}'/>" />
                                        <input type="hidden" name="bbsAttrbCode" value="<c:out value='${brdMstrVO.bbsAttrbCode}'/>" />
-                                       <input type="hidden" name="authFlag" value="<c:out value='${brdMstrVO.authFlag}'/>" />
+                                       <input type="hidden" name="authFlag" value="<c:out value='${brdMstrVO.authFlag}'/>" />--%>
                                        <input name="pageIndex" type="hidden" value="<c:out value='${searchVO.pageIndex}'/>"/>
                                        <input type="submit" value="실행" onclick="fn_egov_select_noticeList('1'); return false;" id="invisible" class="invisible" />
                                        <fieldset>
@@ -93,7 +94,7 @@
                                            <select name="searchCnd" class="select pull-right" title="검색조건 선택" style="margin: 13px 13px 0 0;">
                                                <option value="0" <c:if test="${searchVO.searchCnd == '0'}">selected="selected"</c:if> >제목</option>
                                                <option value="1" <c:if test="${searchVO.searchCnd == '1'}">selected="selected"</c:if> >내용</option>
-                                               <option value="2" <c:if test="${searchVO.searchCnd == '2'}">selected="selected"</c:if> >작성자</option>
+                                               <option value="2" <c:if test="${searchVO.searchCnd == '2'}">selected="selected"</c:if> >글쓴이</option>
                                            </select>
                                        </fieldset>
                                    </form>
@@ -116,11 +117,18 @@
                                         </td>
                                             <%--@elvariable id="searchVO" type="egovframework.let.cop.bbs.service.BoardVO"--%>
                                         <form:form modelAttribute="searchVO" name="searchVO" method="post" action="/cop/bbs/selectNotice.do">
-                                            <td>
+                                            <%--<td>
                                                 <input type="hidden" name="nttId" value="<c:out value='${result.nttId}' />" />
                                                 <input type="hidden" name="bbsId" value="<c:out value='${result.bbsId}' />" />
                                                    <input type="submit" value="<c:out value='${result.nttSj}'/>"
                                                         style="border:0px;background: transparent;" onclick="javascript:fn_notice_list(${result.nttId}, ${result.bbsId})" />
+                                            </td>--%>
+
+                                            <td>
+                                                <input type="hidden" name="nttId" value="<c:out value='${result.nttId}' />" />
+                                                <input type="hidden" name="bbsId" value="<c:out value='${result.bbsId}' />" />
+                                                <input type="submit" value="<c:out value='${result.nttSj}'/>"
+                                                       style="border:0px;background: transparent;"  />
                                             </td>
                                         </form:form>
                                         <td class="text-center">
@@ -147,13 +155,14 @@
                                                 <% } %>
                                             </div>
                                         <ul class="pagination pull-right">
-                                            <li class="footable-page">
+                                            <li class="footable-page" active>
                                                    <ui:pagination paginationInfo="${paginationInfo}" type="image" jsFunction="fn_egov_select_noticeList" />
                                             </li>
                                         </ul>
                                     </td>
                                 </tr>
                             </table>
+
                 </div>
             </div>
         </div>
@@ -163,10 +172,10 @@
 
 
 <!-- Mainly scripts -->
-<script src="<c:url value='/'/>js/jquery-2.1.1.js"></script>
-<script src="<c:url value='/'/>js/bootstrap.min.js"></script>
-<script src="<c:url value='/'/>js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="<c:url value='/'/>js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="<c:url value='/'/>constra/js/jquery-2.1.1.js"></script>
+<script src="<c:url value='/'/>constra/js/bootstrap.min.js"></script>
+<script src="<c:url value='/'/>constra/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="<c:url value='/'/>constra/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
 <!-- Custom and plugin javascript -->
 <script src="<c:url value='/'/>js/inspinia.js"></script>
@@ -189,6 +198,14 @@
 <script src="<c:url value='/'/>js/plugins/toastr/toastr.min.js"></script>
 
 <script>
+    /*********************************************************
+     * 조회 처리 함수
+     ******************************************************** */
+    function fn_egov_search_article(){
+        document.articleForm.pageIndex.value = 1;
+        document.articleForm.submit();
+    }
+
     function fn_notice_list(nttId,bbsId) {
         document.resultList.nttId.value = nttId;
         document.resultList.bbsId.value = bbsId;
@@ -202,6 +219,23 @@
         document.frm.submit();
     }
 
+    function pageAlgo(total, bottomSize, listSize, cursor)
+    {
+        let totalPageSize = Math.ceil(total/listSize);
+        let firstBottomNumber = cursor - cursor % bottomSize +1; // 하단 최초 숫자
+        let lastBottomNumber = cursor - cursor % bottonSize + bottomSize; // 하단 마지막숫자
+
+        if(lastBottomNumber > totalPageSize) lastBottomNumber = totalPageSize; //총갯수보다 큰 경우 방지
+        return {
+            firstBottomNumber,
+            lastBottomNumber,
+            totalPageSize,
+            total,
+            bottomSize,
+            listSize,
+            cursor
+        }
+    }
 </script>
 </div>
 

@@ -179,4 +179,8 @@ public class FileManageDAO extends EgovComAbstractDAO {
 	public List<FileVO> selectImageFileList(FileVO vo) throws Exception {
 		return (List<FileVO>) list("FileManageDAO.selectImageFileList", vo);
 	}
+
+	public List<FileVO> selectImageFileLists(FileVO vo) throws Exception {
+		return (List<FileVO>) list("FileManageDAO.selectImageFileLists", vo);
+	}
 }

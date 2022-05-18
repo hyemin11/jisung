@@ -131,7 +131,8 @@
                 </div>
             </div>
             <div class="row">
-                <c:forEach items="${resultList}" varStatus="status" var="resultList">
+                <%--<c:forEach items="${resultList}" varStatus="status" var="resultList">--%>
+                   <c:forEach items="${resultList}" var="resultList" varStatus="status " >
                     <div class="col-md-3">
                         <div class="ibox">
                             <div class="ibox-content product-box">
@@ -147,7 +148,8 @@
                                         <c:if test="${resultList.atchFileId eq ''}">
                                             <img src="<c:url value='/'/>images/defaultimage.png" style="object-fit: cover;width: 247px; padding-bottom: 40px; padding-top: 40px"  />
                                         </c:if>
-                                        <c:import url="/cmm/fms/selectImageFileInfs.do" charEncoding="utf-8" >
+
+                                        <c:import url="/cmm/fms/selectImageFileInf.do" charEncoding="utf-8" >
                                             <c:param name="atchFileId" value="${resultList.atchFileId}" />
                                         </c:import>
 
@@ -170,8 +172,8 @@
                                     </div>
                                     <div class="m-t text-righ">
                                         <a href="${resultList.homepage}">
-                                            <button type="button" value="홈페이지" class="btnn-custom"
-                                                    onclick="location.href='<c:url value='${resultList.homepage}'/>'" >홈페이지</button>
+                                           <a  value="홈페이지" class="btn btn-white btn-lg" href="<c:url value='${resultList.homepage}'/>"
+                                                  target="_blank" >홈페이지</a>
                                         </a>
                                             <%
                                                 /* LoginVO loginVO = (LoginVO)session.getAttribute("LoginVO");*/

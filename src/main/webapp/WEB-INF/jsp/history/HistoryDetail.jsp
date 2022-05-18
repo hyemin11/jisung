@@ -113,11 +113,16 @@
                                 <c:if test="${historyResult.atchFileId eq ''}">
                                     <img src="<c:url value='/'/>images/defaultimage.png" style="object-fit: cover;width: 247px; padding-bottom: 40px; padding-top: 40px"  />
                                 </c:if>
-                                <c:import url="/cmm/fms/selectImageFileInfs.do" charEncoding="utf-8" >
+                                <c:import url="/cmm/fms/selectImageFileInf.do" charEncoding="utf-8" >
                                     <c:param name="atchFileId" value="${historyResult.atchFileId}" />
                                 </c:import>
                                 ${historyResult.nttCn}
                             </div>
+                            <c:if test="${not empty historyResult.historyInfo}">
+                                <div class="mail-body">
+                                        ${historyResult.historyInfo}
+                                </div>
+                            </c:if>
                             <c:if test="${not empty historyResult.atchFileId}">
                                 <div class="mail-attachment">
                                     <tr style="padding-right: 20px;">

@@ -30,6 +30,8 @@ public class Board implements Serializable {
 	 */
 	private static final long serialVersionUID = -8868310931851410226L;
 
+	private String historyInfo="";
+
 	private String homepage ="";
 	/**
 	 * 게시물 첨부파일 아이디
